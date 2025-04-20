@@ -1,7 +1,18 @@
 ## ORGANIZATION MEMBERSHIP MANAGEMENT SYSTEM
 
+  ## FRONT END(guest page like, home, about, service, event and blog pages etc)
 
-## About Laravel
+  ## BACKEND(dashbord page likes, SupAdmin(owner of system), organization Admin, and member dashbord)
+
+    ## FUNCTIONAL REQUIERMENT 
+
+      ## SupperAdmin Dashbord Requierment
+
+      ## OrganizationAdmin Dashboard Requierment
+      
+      ## Members dashbord Requierment
+
+
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
