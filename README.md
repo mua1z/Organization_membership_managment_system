@@ -126,9 +126,9 @@ Follow these instructions to set up and run the project locally on your Machine.
 ## Installation
 1. Clone the repository:
    
-   git clone https://github.com/tauseedzaman/hospitalMS.git
+   git clone https://github.com/mua1z/Organization_membership_managment_system.git
    
-  cd hospitalMS
+  cd Organization_membership_managment_system
   
 composer install
 
@@ -143,9 +143,13 @@ php artisan migrate:fresh --seed
 php artisan serve
 
 ## Admin Credentials
+
 SupperAdmin Email:
 
 supAdmin@gmail.com
+
 Password:
+
 Muaz@2024
+
 If you like My project please leave a star ❤
