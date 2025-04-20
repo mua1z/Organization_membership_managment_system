@@ -1,6 +1,7 @@
 ## ORGANIZATION MEMBERSHIP MANAGEMENT SYSTEM
 
   ## FRONT END(guest page like, home, about, service, event and blog pages etc)
+![Alt text](https://example.com/image.png)
 
   ## BACKEND(dashbord page likes, SupAdmin(owner of system), organization Admin, and member dashbord)
 
