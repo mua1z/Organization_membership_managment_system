@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMMS - Member Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/member.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <div class="logo">OMMS</div>
+                <span class="org-name">Organization Membership Management</span>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li class="active"><a href="members.html"><i class="fas fa-users"></i> Members</a></li>
+                    <li><a href="#"><i class="fas fa-calendar-alt"></i> Events</a></li>
+                    <li><a href="#"><i class="fas fa-file-alt"></i> Blog</a></li>
+                    <li><a href="#"><i class="fas fa-credit-card"></i> Payments</a></li>
+                    <li><a href="#"><i class="fas fa-chart-bar"></i> Reports</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </nav>
+            
+            <div class="user-profile">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User Profile">
+                <div class="user-info">
+                    <span class="user-name">Admin User</span>
+                    <span class="user-role">Organization Admin</span>
+                </div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </aside>
+        
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Member Management</h1>
+                <div class="header-actions">
+                    <button class="btn btn-primary" id="addMemberBtn">
+                        <i class="fas fa-plus"></i> Add Member
+                    </button>
+                    <button class="btn btn-notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                </div>
+            </header>
+            
+            <!-- Page Description -->
+            <div class="page-description">
+                <p>Manage your organization members</p>
+            </div>
+            
+            <!-- Member Actions Bar -->
+            <div class="action-bar">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search members..." id="memberSearch">
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="btn btn-outline" id="exportBtn">
+                        <i class="fas fa-file-export"></i> Export
+                    </button>
+                    <button class="btn btn-outline" id="importBtn">
+                        <i class="fas fa-file-import"></i> Import
+                    </button>
+                    <div class="dropdown">
+                        <button class="btn btn-outline dropdown-toggle" id="bulkActionsBtn">
+                            <i class="fas fa-tasks"></i> Bulk Actions
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item"><i class="fas fa-envelope"></i> Send Email</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-tag"></i> Change Status</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-user-tag"></i> Assign Role</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item text-danger"><i class="fas fa-trash-alt"></i> Delete Selected</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Member Table -->
+            <div class="card">
+                <div class="table-responsive">
+                    <table class="member-table">
+                        <thead>
+                            <tr>
+                                <th width="40px">
+                                    <input type="checkbox" id="selectAll">
+                                </th>
+                                <th>Member</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Join Date</th>
+                                <th>Last Active</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Member Row 1 -->
+                            <tr>
+                                <td><input type="checkbox" class="member-checkbox"></td>
+                                <td>
+                                    <div class="member-info">
+                                        <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="John Doe" class="member-avatar">
+                                        <div>
+                                            <div class="member-name">John Doe</div>
+                                            <div class="member-email">john.doe@example.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge role-member">Member</span>
+                                </td>
+                                <td>
+                                    <span class="badge status-active">Active</span>
+                                </td>
+                                <td>Jan 15, 2023</td>
+                                <td>2 hours ago</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-icon dropdown-toggle">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a href="#" class="dropdown-item"><i class="fas fa-eye"></i> View</a>
+                                            <a href="#" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
+                                            <a href="#" class="dropdown-item"><i class="fas fa-envelope"></i> Message</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a href="#" class="dropdown-item text-danger"><i class="fas fa-trash-alt"></i> Remove</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <!-- Member Row 2 -->
+                            <tr>
+                                <td><input type="checkbox" class="member-checkbox"></td>
+                                <td>
+                                    <div class="member-info">
+                                        <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Alice Smith" class="member-avatar">
+                                        <div>
+                                            <div class="member-name">Alice Smith</div>
+                                            <div class="member-email">alice.smith@example.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge role-treasurer">Treasurer</span>
+                                </td>
+                                <td>
+                                    <span class="badge status-active">Active</span>
+                                </td>
+                                <td>Mar 5, 2023</td>
+                                <td>1 day ago</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-icon dropdown-toggle">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a href="#" class="dropdown-item"><i class="fas fa-eye"></i> View</a>
+                                            <a href="#" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
+                                            <a href="#" class="dropdown-item"><i class="fas fa-envelope"></i> Message</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a href="#" class="dropdown-item text-danger"><i class="fas fa-trash-alt"></i> Remove</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <!-- Member Row 3 -->
+                            <tr>
+                                <td><input type="checkbox" class="member-checkbox"></td>
+                                <td>
+                                    <div class="member-info">
+                                        <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Robert Johnson" class="member-avatar">
+                                        <div>
+                                            <div class="member-name">Robert Johnson</div>
+                                            <div class="member-email">robert.johnson@example.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge role-secretary">Secretary</span>
+                                </td>
+                                <td>
+                                    <span class="badge status-active">Active</span>
+                                </td>
+                                <td>Feb 20, 2023</td>
+                                <td>3 days ago</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-icon dropdown-toggle">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a href="#" class="dropdown-item"><i class="fas fa-eye"></i> View</a>
+                                            <a href="#" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
+                                            <a href="#" class="dropdown-item"><i class="fas fa-envelope"></i> Message</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a href="#" class="dropdown-item text-danger"><i class="fas fa-trash-alt"></i> Remove</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <!-- Member Row 4 -->
+                            <tr>
+                                <td><input type="checkbox" class="member-checkbox"></td>
+                                <td>
+                                    <div class="member-info">
+                                        <img src="https://randomuser.me/api/portraits/women/4.jpg" alt="Emily Wilson" class="member-avatar">
+                                        <div>
+                                            <div class="member-name">Emily Wilson</div>
+                                            <div class="member-email">emily.wilson@example.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge role-member">Member</span>
+                                </td>
+                                <td>
+                                    <span class="badge status-inactive">Inactive</span>
+                                </td>
+                                <td>Apr 10, 2023</td>
+                                <td>2 weeks ago</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-icon dropdown-toggle">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a href="#" class="dropdown-item"><i class="fas fa-eye"></i> View</a>
+                                            <a href="#" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
+                                            <a href="#" class="dropdown-item"><i class="fas fa-envelope"></i> Message</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a href="#" class="dropdown-item text-danger"><i class="fas fa-trash-alt"></i> Remove</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <!-- Member Row 5 -->
+                            <tr>
+                                <td><input type="checkbox" class="member-checkbox"></td>
+                                <td>
+                                    <div class="member-info">
+                                        <img src="https://randomuser.me/api/portraits/men/5.jpg" alt="Michael Brown" class="member-avatar">
+                                        <div>
+                                            <div class="member-name">Michael Brown</div>
+                                            <div class="member-email">michael.brown@example.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge role-member">Member</span>
+                                </td>
+                                <td>
+                                    <span class="badge status-pending">Pending</span>
+                                </td>
+                                <td>May 1, 2023</td>
+                                <td>Never</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-icon dropdown-toggle">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a href="#" class="dropdown-item"><i class="fas fa-eye"></i> View</a>
+                                            <a href="#" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
+                                            <a href="#" class="dropdown-item"><i class="fas fa-envelope"></i> Message</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a href="#" class="dropdown-item text-danger"><i class="fas fa-trash-alt"></i> Remove</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <!-- Member Row 6 -->
+                            <tr>
+                                <td><input type="checkbox" class="member-checkbox"></td>
+                                <td>
+                                    <div class="member-info">
+                                        <img src="https://randomuser.me/api/portraits/women/6.jpg" alt="Sarah Davis" class="member-avatar">
+                                        <div>
+                                            <div class="member-name">Sarah Davis</div>
+                                            <div class="member-email">sarah.davis@example.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge role-member">Member</span>
+                                </td>
+                                <td>
+                                    <span class="badge status-active">Active</span>
+                                </td>
+                                <td>Jan 5, 2023</td>
+                                <td>5 hours ago</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-icon dropdown-toggle">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a href="#" class="dropdown-item"><i class="fas fa-eye"></i> View</a>
+                                            <a href="#" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
+                                            <a href="#" class="dropdown-item"><i class="fas fa-envelope"></i> Message</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a href="#" class="dropdown-item text-danger"><i class="fas fa-trash-alt"></i> Remove</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <!-- Member Row 7 -->
+                            <tr>
+                                <td><input type="checkbox" class="member-checkbox"></td>
+                                <td>
+                                    <div class="member-info">
+                                        <img src="https://randomuser.me/api/portraits/men/7.jpg" alt="David Miller" class="member-avatar">
+                                        <div>
+                                            <div class="member-name">David Miller</div>
+                                            <div class="member-email">david.miller@example.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge role-member">Member</span>
+                                </td>
+                                <td>
+                                    <span class="badge status-active">Active</span>
+                                </td>
+                                <td>Feb 15, 2023</td>
+                                <td>Yesterday</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-icon dropdown-toggle">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a href="#" class="dropdown-item"><i class="fas fa-eye"></i> View</a>
+                                            <a href="#" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
+                                            <a href="#" class="dropdown-item"><i class="fas fa-envelope"></i> Message</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a href="#" class="dropdown-item text-danger"><i class="fas fa-trash-alt"></i> Remove</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Table Footer -->
+                <div class="table-footer">
+                    <div class="table-info">
+                        Showing 1 to 7 of 245 members
+                    </div>
+                    <div class="pagination">
+                        <button class="btn btn-outline" disabled>
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="btn btn-outline active">1</button>
+                        <button class="btn btn-outline">2</button>
+                        <button class="btn btn-outline">3</button>
+                        <span class="pagination-ellipsis">...</span>
+                        <button class="btn btn-outline">35</button>
+                        <button class="btn btn-outline">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Add Member Modal -->
+            <div class="modal" id="addMemberModal">
+                <div class="modal-dialog">
+                    <div class="modal-header">
+                        <h3>Add New Member</h3>
+                        <button class="btn btn-icon modal-close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="addMemberForm">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="role">Role</label>
+                                <select id="role" class="form-control">
+                                    <option value="member">Member</option>
+                                    <option value="treasurer">Treasurer</option>
+                                    <option value="secretary">Secretary</option>
+                                    <option value="admin">Admin</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="status">Status</label>
+                                <select id="status" class="form-control">
+                                    <option value="active">Active</option>
+                                    <option value="inactive">Inactive</option>
+                                    <option value="pending">Pending</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id="sendInvite"> Send invitation email
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline modal-close">Cancel</button>
+                        <button class="btn btn-primary" type="submit" form="addMemberForm">Add Member</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/member.js"></script>
+</body>
+</html>

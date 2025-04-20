@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMMS | Super Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo">OMMS</h1>
+                <p class="logo-subtitle">Super Admin Dashboard</p>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active"><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="organ.html"><i class="fas fa-building"></i> Organizations</a></li>
+                    <li><a href="orgAdmin.html"><i class="fas fa-user-shield"></i> OrgAdmins</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> Members</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> System Config</a></li>
+                    <li><a href="#"><i class="fas fa-credit-card"></i> Payments</a></li>
+                    <li><a href="#"><i class="fas fa-chart-bar"></i> Reports</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
+                    <div>
+                        <p class="username">Super Admin</p>
+                        <p class="user-role">Administrator</p>
+                    </div>
+                </div>
+                <a href="#" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="main-header">
+                <h2>Dashboard</h2>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search...">
+                    </div>
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <!-- Welcome Section -->
+                <section class="welcome-section">
+                    <h3>Welcome back, Super Admin</h3>
+                    <p>Here's what's happening across the platform.</p>
+                </section>
+
+                <!-- Stats Cards -->
+                <section class="stats-section">
+                    <div class="stats-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="stats-info">
+                            <h4>Total Organizations</h4>
+                            <p class="stats-number">4</p>
+                            <p class="stats-change positive">+19 from last month</p>
+                        </div>
+                    </div>
+
+                    <div class="stats-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <div class="stats-info">
+                            <h4>Active OrgAdmins</h4>
+                            <p class="stats-number">4</p>
+                            <p class="stats-change positive">+12 from last month</p>
+                        </div>
+                    </div>
+
+                    <div class="stats-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stats-info">
+                            <h4>Active Members</h4>
+                            <p class="stats-number">6</p>
+                            <p class="stats-change positive">+2,432 from last month</p>
+                        </div>
+                    </div>
+
+                    <div class="stats-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="stats-info">
+                            <h4>Monthly Revenue</h4>
+                            <p class="stats-number">$6,200.00</p>
+                            <p class="stats-change positive">+11.6% from last month</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Financial Metrics -->
+                <section class="metrics-section">
+                    <div class="section-header">
+                        <h3>Financial Metrics</h3>
+                        <p>Platform-wide revenue and expenses over time</p>
+                    </div>
+                    <div class="metrics-content">
+                        <div class="metrics-summary">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Total Revenue</th>
+                                        <th>Total Expenses</th>
+                                        <th>Profit Margin</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>$145,324</td>
+                                        <td>$95,536</td>
+                                        <td>34.3%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="metrics-chart">
+                            <canvas id="financialChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- System Health -->
+                <section class="system-section">
+                    <div class="section-header">
+                        <h3>System Health</h3>
+                        <p>Current system performance metrics</p>
+                    </div>
+                    <div class="system-content">
+                        <div class="system-metric">
+                            <h4>CPU Usage</h4>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 63%"></div>
+                            </div>
+                            <span>63%</span>
+                        </div>
+                        <div class="system-metric">
+                            <h4>Memory Usage</h4>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 59%"></div>
+                            </div>
+                            <span>59%</span>
+                        </div>
+                        <div class="system-metric">
+                            <h4>Disk Space</h4>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 20%"></div>
+                            </div>
+                            <span>20%</span>
+                        </div>
+                        <div class="system-metric">
+                            <h4>Network Load</h4>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 23%"></div>
+                            </div>
+                            <span>23%</span>
+                        </div>
+                        <div class="system-metric">
+                            <h4>System Uptime</h4>
+                            <p class="uptime">19 days, 18 hours</p>
+                        </div>
+                    </div>
+                    <div class="last-updated">
+                        Last updated: <span id="current-time"></span>
+                    </div>
+                </section>
+
+                <!-- Recent Activities -->
+                <section class="activities-section">
+                    <div class="section-header">
+                        <h3>Recent Activities</h3>
+                        <p>Latest actions across all organizations</p>
+                    </div>
+                    <div class="activities-list">
+                        <div class="activity-item">
+                            <div class="activity-avatar">
+                                <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="John Smith">
+                            </div>
+                            <div class="activity-details">
+                                <h4>John Smith</h4>
+                                <p>created a new event <span class="activity-time">2 hours ago</span></p>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Sarah Johnson">
+                            </div>
+                            <div class="activity-details">
+                                <h4>Sarah Johnson</h4>
+                                <p>added 25 new members <span class="activity-time">3 hours ago</span></p>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-avatar">
+                                <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Michael Brown">
+                            </div>
+                            <div class="activity-details">
+                                <h4>Michael Brown</h4>
+                                <p>processed a payment of $1,250 <span class="activity-time">5 hours ago</span></p>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/4.jpg" alt="Emily Davis">
+                            </div>
+                            <div class="activity-details">
+                                <h4>Emily Davis</h4>
+                                <p>updated organization settings <span class="activity-time">6 hours ago</span></p>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-avatar">
+                                <img src="https://randomuser.me/api/portraits/men/5.jpg" alt="David Wilson">
+                            </div>
+                            <div class="activity-details">
+                                <h4>David Wilson</h4>
+                                <p>created a new subscription plan <span class="activity-time">8 hours ago</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="view-all">
+                        <a href="#">View all activities <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/js/scripts.js"></script>
+</body>
+</html>

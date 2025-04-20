@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMMS - Organization Membership Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <div class="logo">OMMS</div>
+                <span class="org-name">Organization Membership Management</span>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li class="active"><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="members.html"><i class="fas fa-users"></i> Members</a></li>
+                    <li><a href="#"><i class="fas fa-calendar-alt"></i> Events</a></li>
+                    <li><a href="#"><i class="fas fa-file-alt"></i> Blog</a></li>
+                    <li><a href="#"><i class="fas fa-credit-card"></i> Payments</a></li>
+                    <li><a href="#"><i class="fas fa-chart-bar"></i> Reports</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </nav>
+            
+            <div class="user-profile">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User Profile">
+                <div class="user-info">
+                    <span class="user-name">Admin User</span>
+                    <span class="user-role">System Administrator</span>
+                </div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </aside>
+        
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Dashboard</h1>
+                <div class="header-actions">
+                    <button class="btn btn-notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <button class="btn btn-help">
+                        <i class="fas fa-question-circle"></i>
+                    </button>
+                </div>
+            </header>
+            
+            <!-- Stats Cards -->
+            <section class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-content">
+                        <h3>Total Members</h3>
+                        <div class="stat-value">245</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> +12 this month
+                        </div>
+                    </div>
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-content">
+                        <h3>Active Events</h3>
+                        <div class="stat-value">8</div>
+                        <div class="stat-change">
+                            3 upcoming this week
+                        </div>
+                    </div>
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-content">
+                        <h3>Pending Approvals</h3>
+                        <div class="stat-value">5</div>
+                        <div class="stat-change negative">
+                            Needs attention
+                        </div>
+                    </div>
+                    <div class="stat-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-content">
+                        <h3>Overdue Payments</h3>
+                        <div class="stat-value">12</div>
+                        <div class="stat-change negative">
+                            Due soon
+                        </div>
+                    </div>
+                    <div class="stat-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Two Column Layout -->
+            <div class="two-column-layout">
+                <!-- Left Column -->
+                <div class="column-left">
+                    <!-- Upcoming Events -->
+                    <section class="card upcoming-events">
+                        <div class="card-header">
+                            <h2>Upcoming Events</h2>
+                            <button class="btn btn-text">View All</button>
+                        </div>
+                        <div class="card-body">
+                            <p>You have 3 events scheduled this week:</p>
+                            
+                            <div class="event-item">
+                                <div class="event-date">
+                                    <div class="event-day">Tomorrow</div>
+                                    <div class="event-time">10:00 AM</div>
+                                </div>
+                                <div class="event-details">
+                                    <h4>Annual General Meeting</h4>
+                                    <div class="event-actions">
+                                        <button class="btn btn-sm btn-outline">Details</button>
+                                        <button class="btn btn-sm btn-primary">Confirm Venue</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="event-item">
+                                <div class="event-date">
+                                    <div class="event-day">May 15</div>
+                                    <div class="event-time">6:00 PM</div>
+                                </div>
+                                <div class="event-details">
+                                    <h4>Networking Mixer</h4>
+                                    <div class="event-actions">
+                                        <button class="btn btn-sm btn-outline">Details</button>
+                                        <button class="btn btn-sm btn-primary">Send Reminders</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="event-item">
+                                <div class="event-date">
+                                    <div class="event-day">May 18</div>
+                                    <div class="event-time">2:00 PM</div>
+                                </div>
+                                <div class="event-details">
+                                    <h4>Workshop: Leadership Skills</h4>
+                                    <div class="event-actions">
+                                        <button class="btn btn-sm btn-outline">Details</button>
+                                        <button class="btn btn-sm btn-primary">Check Materials</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Recent Member Activity -->
+                    <section class="card recent-activity">
+                        <div class="card-header">
+                            <h2>Recent Member Activity</h2>
+                            <button class="btn btn-text">View All</button>
+                        </div>
+                        <div class="card-body">
+                            <p>Latest actions from organization members</p>
+                            
+                            <div class="activity-item">
+                                <div class="activity-avatar">
+                                    <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="John Doe">
+                                </div>
+                                <div class="activity-details">
+                                    <h4>John Doe</h4>
+                                    <p>Updated profile information</p>
+                                    <span class="activity-time">2 hours ago</span>
+                                </div>
+                            </div>
+                            
+                            <div class="activity-item">
+                                <div class="activity-avatar">
+                                    <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Alice Smith">
+                                </div>
+                                <div class="activity-details">
+                                    <h4>Alice Smith</h4>
+                                    <p>RSVP'd to Annual General Meeting</p>
+                                    <span class="activity-time">5 hours ago</span>
+                                </div>
+                            </div>
+                            
+                            <div class="activity-item">
+                                <div class="activity-avatar">
+                                    <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Robert Johnson">
+                                </div>
+                                <div class="activity-details">
+                                    <h4>Robert Johnson</h4>
+                                    <p>Made a payment of $150.00</p>
+                                    <span class="activity-time">Yesterday</span>
+                                </div>
+                            </div>
+                            
+                            <div class="activity-item">
+                                <div class="activity-avatar">
+                                    <img src="https://randomuser.me/api/portraits/women/4.jpg" alt="Emily Wilson">
+                                </div>
+                                <div class="activity-details">
+                                    <h4>Emily Wilson</h4>
+                                    <p>Commented on blog post "Quarterly Update"</p>
+                                    <span class="activity-time">Yesterday</span>
+                                </div>
+                            </div>
+                            
+                            <div class="activity-item">
+                                <div class="activity-avatar">
+                                    <img src="https://randomuser.me/api/portraits/men/5.jpg" alt="Michael Brown">
+                                </div>
+                                <div class="activity-details">
+                                    <h4>Michael Brown</h4>
+                                    <p>Uploaded documents for membership renewal</p>
+                                    <span class="activity-time">2 days ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                
+                <!-- Right Column -->
+                <div class="column-right">
+                    <!-- Reminders -->
+                    <section class="card reminders">
+                        <div class="card-header">
+                            <h2>Reminders</h2>
+                            <span class="badge">5</span>
+                        </div>
+                        <div class="card-body">
+                            <p>Items requiring your attention</p>
+                            
+                            <div class="reminder-item priority-high">
+                                <div class="reminder-icon">
+                                    <i class="fas fa-user-plus"></i>
+                                </div>
+                                <div class="reminder-details">
+                                    <h4>Membership Approvals</h4>
+                                    <p>5 new membership applications pending approval</p>
+                                    <button class="btn btn-sm btn-primary">Review Applications</button>
+                                </div>
+                            </div>
+                            
+                            <div class="reminder-item priority-medium">
+                                <div class="reminder-icon">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                </div>
+                                <div class="reminder-details">
+                                    <h4>Payment Collection</h4>
+                                    <p>12 members have overdue payments</p>
+                                    <button class="btn btn-sm btn-primary">View Overdue Payments</button>
+                                </div>
+                            </div>
+                            
+                            <div class="reminder-item priority-high">
+                                <div class="reminder-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="reminder-details">
+                                    <h4>Event Confirmation</h4>
+                                    <p>Confirm venue for Annual General Meeting</p>
+                                    <button class="btn btn-sm btn-primary">Confirm Venue</button>
+                                </div>
+                            </div>
+                            
+                            <div class="reminder-item priority-low">
+                                <div class="reminder-icon">
+                                    <i class="fas fa-blog"></i>
+                                </div>
+                                <div class="reminder-details">
+                                    <h4>Blog Post Review</h4>
+                                    <p>Review and publish quarterly update post</p>
+                                    <button class="btn btn-sm btn-primary">Review Post</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/scripts.js"></script>
+</body>
+</html>

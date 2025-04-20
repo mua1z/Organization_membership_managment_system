@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMMS - Blog & Announcements</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/blog.css">
+    <link rel="stylesheet" href="/css/styles.css">
+
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <div class="logo">OMMS</div>
+                <span class="org-name">Organization Membership Management</span>
+            </div>
+            
+            <nav class="main-nav">
+                <h4 class="nav-section">Main</h4>
+                <ul>
+                    <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="members.html"><i class="fas fa-users"></i> Members</a></li>
+                    <li><a href="event.html"><i class="fas fa-calendar-alt"></i> Events</a></li>
+                    <li><a href="blog.html"><i class="fas fa-file-alt"></i> Blog/Announcements</a></li>
+                    <li><a href="payment.html"><i ></i> Payments</a></li>
+                </ul>
+                
+                <h4 class="nav-section">Finance</h4>
+                <ul>
+                    <li><a href="#"><i class="fas fa-credit-card"></i> Payments</a></li>
+                    <li><a href="#"><i class="fas fa-chart-bar"></i> Reports</a></li>
+                </ul>
+                
+                <h4 class="nav-section">Management</h4>
+                <ul>
+                    <li><a href="#"><i class="fas fa-tasks"></i> Workflows</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </nav>
+            
+            <div class="user-profile">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User Profile">
+                <div class="user-info">
+                    <span class="user-name">Admin User</span>
+                    <span class="user-role">Organization Admin</span>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Blog & Announcements</h1>
+                <div class="header-actions">
+                    <button class="btn btn-primary" id="createPostBtn">
+                        <i class="fas fa-plus"></i> Create Post
+                    </button>
+                </div>
+            </header>
+            
+            <!-- Page Description -->
+            <div class="page-description">
+                <p>Manage your organization's content</p>
+            </div>
+            
+            <!-- Content Filters -->
+            <div class="content-filters">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search posts..." id="postSearch">
+                </div>
+                
+                <div class="filter-group">
+                    <label for="statusFilter">Status:</label>
+                    <select id="statusFilter" class="form-control">
+                        <option value="all">All</option>
+                        <option value="published">Published</option>
+                        <option value="draft">Draft</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="categoryFilter">Category:</label>
+                    <select id="categoryFilter" class="form-control">
+                        <option value="all">All</option>
+                        <option value="urgent">Urgent</option>
+                        <option value="update">Update</option>
+                        <option value="general">General</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Posts Grid -->
+            <div class="posts-grid">
+                <!-- Post Card 1 -->
+                <div class="post-card">
+                    <div class="post-header">
+                        <h3 class="post-title">New Member Benefits Announcement</h3>
+                        <div class="post-meta">
+                            <span class="post-author">Alice Smith</span>
+                            <span class="post-date">Apr 10, 2023</span>
+                        </div>
+                    </div>
+                    <div class="post-excerpt">
+                        Exciting new benefits for all organization members starting next month...
+                    </div>
+                    <div class="post-footer">
+                        <span class="post-category general">General</span>
+                        <span class="post-status published">Published</span>
+                        <div class="post-actions">
+                            <button class="btn btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Post Card 2 -->
+                <div class="post-card">
+                    <div class="post-header">
+                        <h3 class="post-title">Community Service Initiative</h3>
+                        <div class="post-meta">
+                            <span class="post-author">Emily Wilson</span>
+                            <span class="post-date">Mar 28, 2023</span>
+                        </div>
+                    </div>
+                    <div class="post-excerpt">
+                        Join our new community service program and make a difference in your local...
+                    </div>
+                    <div class="post-footer">
+                        <span class="post-category update">Update</span>
+                        <span class="post-status published">Published</span>
+                        <div class="post-actions">
+                            <button class="btn btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Post Card 3 -->
+                <div class="post-card">
+                    <div class="post-header">
+                        <h3 class="post-title">System Maintenance Notice</h3>
+                        <div class="post-meta">
+                            <span class="post-author">Admin User</span>
+                            <span class="post-date">Jan 18, 2023</span>
+                        </div>
+                    </div>
+                    <div class="post-excerpt">
+                        Planned system maintenance this weekend. The portal will be unavailable...
+                    </div>
+                    <div class="post-footer">
+                        <span class="post-category urgent">Urgent</span>
+                        <span class="post-status published">Published</span>
+                        <div class="post-actions">
+                            <button class="btn btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Post Card 4 -->
+                <div class="post-card draft">
+                    <div class="post-header">
+                        <h3 class="post-title">Upcoming Policy Changes</h3>
+                        <div class="post-meta">
+                            <span class="post-author">Admin User</span>
+                            <span class="post-date">-</span>
+                        </div>
+                    </div>
+                    <div class="post-excerpt">
+                        Review the proposed changes to our membership policies before the next...
+                    </div>
+                    <div class="post-footer">
+                        <span class="post-category update">Update</span>
+                        <span class="post-status draft">Draft</span>
+                        <div class="post-actions">
+                            <button class="btn btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Create Post Modal -->
+            <div class="modal" id="createPostModal">
+                <div class="modal-dialog">
+                    <div class="modal-header">
+                        <h3>Create New Post</h3>
+                        <button class="btn btn-icon modal-close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="createPostForm">
+                            <div class="form-group">
+                                <label for="postTitle">Title</label>
+                                <input type="text" id="postTitle" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="postContent">Content</label>
+                                <textarea id="postContent" class="form-control" rows="6"></textarea>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="postCategory">Category</label>
+                                    <select id="postCategory" class="form-control">
+                                        <option value="general">General</option>
+                                        <option value="update">Update</option>
+                                        <option value="urgent">Urgent</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="postStatus">Status</label>
+                                    <select id="postStatus" class="form-control">
+                                        <option value="draft">Draft</option>
+                                        <option value="published">Published</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="postImage">Featured Image</label>
+                                <input type="file" id="postImage" class="form-control" accept="image/*">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="postAttachments">Attachments</label>
+                                <input type="file" id="postAttachments" class="form-control" multiple>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline modal-close">Cancel</button>
+                        <button class="btn btn-primary" type="submit" form="createPostForm">Publish Post</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/blog.js"></script>
+  
+</body>
+</html>

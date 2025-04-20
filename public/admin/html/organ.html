@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMMS | Organizations Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo">OMMS</h1>
+                <p class="logo-subtitle">Super Admin Dashboard</p>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li class="active"><a href="organ.html"><i class="fas fa-building"></i> Organizations</a></li>
+                    <li><a href="orgAdmin.html"><i class="fas fa-user-shield"></i> OrgAdmins</a></li>
+                    <li><a href="members.html"><i class="fas fa-users"></i> Members</a></li>
+                    <li><a href="system-config.html"><i class="fas fa-cog"></i> System Config</a></li>
+                    <li><a href="payments.html"><i class="fas fa-credit-card"></i> Payments</a></li>
+                    <li><a href="reports.html"><i class="fas fa-chart-bar"></i> Reports</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
+                    <div>
+                        <p class="username">Super Admin</p>
+                        <p class="user-role">Administrator</p>
+                    </div>
+                </div>
+                <a href="#" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="main-header">
+                <h2>Organizations</h2>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search organizations...">
+                    </div>
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <!-- Page Header -->
+                <section class="page-header">
+                    <h3>Manage all organizations on the platform</h3>
+                    <button class="btn btn-primary" id="add-organization-btn">
+                        <i class="fas fa-plus"></i> Add Organization
+                    </button>
+                </section>
+
+                <!-- Organizations Table -->
+                <section class="organizations-table-section">
+                    <div class="table-responsive">
+                        <table class="organizations-table">
+                            <thead>
+                                <tr>
+                                    <th>Organization</th>
+                                    <th>Admins</th>
+                                    <th>Members</th>
+                                    <th>Plan</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="org-info">
+                                            <div class="org-avatar">
+                                                <img src="https://logo.clearbit.com/acmecorp.com" alt="Acme Corp" onerror="this.src='https://ui-avatars.com/api/?name=Acme+Corp&background=random'">
+                                            </div>
+                                            <div class="org-details">
+                                                <h4>Acme Corp</h4>
+                                                <p>Last active: 2 hours ago</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>3</td>
+                                    <td>128</td>
+                                    <td><span class="badge badge-enterprise">Enterprise</span></td>
+                                    <td><span class="badge badge-active">Active</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-action view-btn" title="View">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn-action edit-btn" title="Edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn-action deactivate-btn" title="Deactivate">
+                                                <i class="fas fa-ban"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="org-info">
+                                            <div class="org-avatar">
+                                                <img src="https://logo.clearbit.com/creativeminds.com" alt="Creative Minds" onerror="this.src='https://ui-avatars.com/api/?name=Creative+Minds&background=random'">
+                                            </div>
+                                            <div class="org-details">
+                                                <h4>Creative Minds</h4>
+                                                <p>Last active: 1 day ago</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>1</td>
+                                    <td>42</td>
+                                    <td><span class="badge badge-basic">Basic</span></td>
+                                    <td><span class="badge badge-inactive">Inactive</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-action view-btn" title="View">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn-action edit-btn" title="Edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn-action activate-btn" title="Activate">
+                                                <i class="fas fa-check-circle"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="org-info">
+                                            <div class="org-avatar">
+                                                <img src="https://logo.clearbit.com/globalsolutions.com" alt="Global Solutions" onerror="this.src='https://ui-avatars.com/api/?name=Global+Solutions&background=random'">
+                                            </div>
+                                            <div class="org-details">
+                                                <h4>Global Solutions</h4>
+                                                <p>Last active: 5 minutes ago</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>4</td>
+                                    <td>210</td>
+                                    <td><span class="badge badge-enterprise">Enterprise</span></td>
+                                    <td><span class="badge badge-active">Active</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-action view-btn" title="View">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn-action edit-btn" title="Edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn-action deactivate-btn" title="Deactivate">
+                                                <i class="fas fa-ban"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="org-info">
+                                            <div class="org-avatar">
+                                                <img src="https://logo.clearbit.com/healthpartners.com" alt="Health Partners" onerror="this.src='https://ui-avatars.com/api/?name=Health+Partners&background=random'">
+                                            </div>
+                                            <div class="org-details">
+                                                <h4>Health Partners</h4>
+                                                <p>Last active: 3 hours ago</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>2</td>
+                                    <td>76</td>
+                                    <td><span class="badge badge-professional">Professional</span></td>
+                                    <td><span class="badge badge-active">Active</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-action view-btn" title="View">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn-action edit-btn" title="Edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn-action deactivate-btn" title="Deactivate">
+                                                <i class="fas fa-ban"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="org-info">
+                                            <div class="org-avatar">
+                                                <img src="https://logo.clearbit.com/techstart.com" alt="TechStart Inc" onerror="this.src='https://ui-avatars.com/api/?name=TechStart+Inc&background=random'">
+                                            </div>
+                                            <div class="org-details">
+                                                <h4>TechStart Inc</h4>
+                                                <p>Last active: 30 minutes ago</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>2</td>
+                                    <td>85</td>
+                                    <td><span class="badge badge-professional">Professional</span></td>
+                                    <td><span class="badge badge-active">Active</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-action view-btn" title="View">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn-action edit-btn" title="Edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn-action deactivate-btn" title="Deactivate">
+                                                <i class="fas fa-ban"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Pagination -->
+                <section class="pagination-section">
+                    <div class="pagination-info">
+                        Showing 1 to 5 of 15 organizations
+                    </div>
+                    <div class="pagination-controls">
+                        <button class="pagination-btn" disabled>
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="pagination-btn active">1</button>
+                        <button class="pagination-btn">2</button>
+                        <button class="pagination-btn">3</button>
+                        <button class="pagination-btn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Organization Modal -->
+    <div class="modal" id="add-organization-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Organization</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="add-organization-form">
+                    <div class="form-group">
+                        <label for="org-name">Organization Name</label>
+                        <input type="text" id="org-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="org-domain">Organization Domain</label>
+                        <input type="text" id="org-domain" placeholder="example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="org-plan">Subscription Plan</label>
+                        <select id="org-plan" required>
+                            <option value="">Select a plan</option>
+                            <option value="basic">Basic</option>
+                            <option value="professional">Professional</option>
+                            <option value="enterprise">Enterprise</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="org-admin">Primary Admin Email</label>
+                        <input type="email" id="org-admin" placeholder="admin@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="org-status">Initial Status</label>
+                        <select id="org-status" required>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary modal-cancel">Cancel</button>
+                <button class="btn btn-primary modal-submit">Create Organization</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/organ.js"></script>
+</body>
+</html>
