@@ -5,7 +5,7 @@
 
 
   ## BACKEND(dashbord page likes, SupAdmin(owner of system), organization Admin, and member dashbord)
-
+![Alt text](https://github.com/mua1z/Organization_membership_managment_system/blob/5a186112d262434e0c32cc389dfd21bebcb6ded3/screencapture-127-0-0-1-8000-home-2025-04-20-21_59_29.png)
 
 ## ✅ Functional Requirements – Super Admin Panel
 
