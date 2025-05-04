@@ -40,7 +40,7 @@
 <section class="about" id="about">
     <div class="container">
         <div class="about-header">
-            <h2 class="section-title">Our Story & Vision and value</h2>
+            <h2 class="section-title">Our Story & Vision</h2>
             <p class="section-subtitle">Empowering organizations to focus on what truly matters</p>
         </div>
         
