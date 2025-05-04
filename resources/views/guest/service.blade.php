@@ -45,7 +45,7 @@
         <div class="container">
      
             <div class="section-header">
-            <h1 style="mergin:25px; padding: 25px;">Our Service</h1>
+            <h1 style="margin:25px; padding: 25px;">Our Service</h1>
                 <h2>Essential Tools for Every Organization</h2>
                 <p>Our core services provide the foundation for efficient membership management</p>
             </div>

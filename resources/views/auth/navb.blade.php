@@ -40,5 +40,11 @@
             </ul>
         </div>
     </nav>
+
+
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/event.js"></script>
+
 </body>
 </html>
