@@ -31,6 +31,8 @@ body {
 
 .container {
     width: 100%;
+
+
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
@@ -53,7 +55,7 @@ p {
 
 a {
     text-decoration: none;
-    color: var(--deep-green);
+    color: var(--black);
     transition: all 0.3s ease;
 }
 
@@ -133,6 +135,7 @@ ul {
 }
 
 /* Navigation */
+/* Navigation */
 .navbar {
     background-color: var(--white);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -172,23 +175,18 @@ ul {
 
 .nav-list a {
     font-weight: 600;
-    color: var(--dark-green);
+    color: black;
     position: relative;
 }
 
 .nav-list a.active {
-    color: var(--medium-green);
+    color: black;
 }
 
+/* Removed the underline effect from active and hover states */
 .nav-list a.active::after,
 .nav-list a:hover::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--medium-green);
+    content: none;
 }
 
 .menu-toggle {
@@ -861,7 +859,7 @@ a:hover {
     transform: translateY(-3px);
 }
 
-/* Header */
+/* Header
 .header {
     position: fixed;
     top: 0;
@@ -940,7 +938,7 @@ a:hover {
     background-color: var(--dark-green);
     margin: 5px 0;
     transition: var(--transition);
-}
+} */
 
 /* Blog Hero Section */
 .blog-hero {

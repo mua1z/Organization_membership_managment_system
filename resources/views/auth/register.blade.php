@@ -1,10 +1,17 @@
+
 <x-guest-layout>
+@include('auth.navb')
+<div style="margin: 90px">
     <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />
         </x-slot>
 
         <x-validation-errors class="mb-4" />
+
+     
+         
+          
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
@@ -90,14 +97,23 @@
             @endif
 
             <div class="flex items-center justify-end mt-4">
-                <a class="text-sm text-gray-600 underline rounded-md hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
+           
+            <a href="{{ route('login') }}" class="text-sm text-blue-600 hover:underline">
+        Already have an account? Login
+    </a>
+
+              
 
                 <x-button class="ms-4">
                     {{ __('Register') }}
                 </x-button>
             </div>
         </form>
+     
     </x-authentication-card>
+
+    </div>
+    @include('auth.footer')
+   
 </x-guest-layout>
+

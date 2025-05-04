@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/service.css">
+  
 </head>
 <body>
     
@@ -15,6 +16,7 @@
     
     
     <!-- Navigation -->
+     
     <nav class="navbar">
         <div class="container">
            
@@ -26,21 +28,145 @@
                 <span></span>
                 <span></span>
             </div>
-            <ul class="nav-list" >
-                <li><a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{url('/')}}" >Home</a></li>
+            <ul class="nav-list">
+                <li><a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{url('/')}}">Home</a></li>
                 <li><a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{url('/about')}}">About</a></li>
                 <li><a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{url('/service')}}" class="activ">Service</a></li>
                 <li><a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{url('/events')}}">Event</a></li>
                 <li><a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{url('/blogs')}}">Blog</a></li>
                 <li><a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{url('/contact')}}">Contact</a></li>
-                <li><a href="{{route('login')}}" class="btn btn-primary" style="color:white">Log in</a></li>
+                <li><a href="{{route('login')}}" class="btn btn-primary" style="color:white"> Log in</a></li>
                 <li><a href="{{route('register')}}" class="btn btn-primary" style="color:white">Get Started</a></li>
             </ul>
         </div>
     </nav>
 
 
-    <!-- Hero Section with Dynamic Background -->
+    <div class="hero-container">
+        <!-- Background Slides -->
+        <div class="background-slides" id="backgroundSlides">
+            <div class="background-slide" style="background-image: url('/asset/membership-management-system.webp ');"></div>
+            <div class="background-slide" style="background-image: url('/asset/c_magnifying_glass_with_illustrative_people_dark.jpg ');"></div>
+            <div class="background-slide" style="background-image: url('/asset/eventmanagementpowerpointpresentationslides-210810034621-thumbnail.webp');"></div>
+        </div>
+        
+        <!-- Content Slides -->
+        <div class="hero-content" id="heroContent">
+            
+            <div class="hero-slide active">
+          
+                <div class="hero-buttons">
+                <a href="{{route('register')}}" > <button class="hero-button primary">Get start</button></a>
+                <a href="{{url('/service')}}" ><button class="hero-button">Lear more</button></a>    
+                </div>
+            </div>
+            
+            <div class="hero-slide active">
+          
+          <div class="hero-buttons">
+          <a href="{{route('register')}}" > <button class="hero-button primary">Get start</button></a>
+          <a href="{{url('/service')}}" ><button class="hero-button">Lear more</button></a>  
+          </div>
+      </div>
+            
+      <div class="hero-slide active">
+          
+          <div class="hero-buttons">
+          <a href="{{route('register')}}" > <button class="hero-button primary">Get start</button></a>
+          <a href="{{url('/service')}}" ><button class="hero-button">Lear more</button></a>  
+          </div>
+      </div>
+        </div>
+        
+        <!-- Indicators -->
+        <div class="indicator-container" id="indicatorContainer">
+            <div class="indicator active"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroContent = document.getElementById('heroContent');
+            const backgroundSlides = document.getElementById('backgroundSlides');
+            const indicatorContainer = document.getElementById('indicatorContainer');
+            const slides = document.querySelectorAll('.hero-slide');
+            const indicators = document.querySelectorAll('.indicator');
+            let currentIndex = 0;
+            let slideInterval;
+            
+            function initSlider() {
+                // Set initial active slide
+                updateSlide();
+                
+                // Auto-scroll every 2 seconds
+                slideInterval = setInterval(nextSlide, 2000);
+                
+                // Click event for indicators
+                indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => {
+                        goToSlide(index);
+                    });
+                });
+            }
+            
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateSlide();
+            }
+            
+            function goToSlide(index) {
+                currentIndex = index;
+                updateSlide();
+                // Reset the timer when manually changing slides
+                resetInterval();
+            }
+            
+            function updateSlide() {
+                // Move content
+                heroContent.style.transform = `translateX(-${currentIndex * 100}vw)`;
+                
+                // Move background with parallax effect (slower movement)
+                backgroundSlides.style.transform = `translateX(-${currentIndex * 33.33}%)`;
+                
+                // Update active class for animation
+                slides.forEach((slide, index) => {
+                    if (index === currentIndex) {
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+                
+                // Update indicators
+                indicators.forEach((indicator, index) => {
+                    if (index === currentIndex) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+            }
+            
+            function resetInterval() {
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, 2000);
+            }
+            
+            // Pause on hover
+            heroContent.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
+            
+            heroContent.addEventListener('mouseleave', resetInterval);
+            
+            // Initialize slider
+            initSlider();
+        });
+    </script>
+
+    <!-- Hero Section with Dynamic Background 
  
 
     <section class="hero">
@@ -52,7 +178,7 @@
                 <a href="{{url('/service')}}" class="btn btn-outline">Learn More</a>
             </div>
         </div>
-    </section>
+    </section>-->
 
     <!-- Stats Section -->
     <section class="stats">

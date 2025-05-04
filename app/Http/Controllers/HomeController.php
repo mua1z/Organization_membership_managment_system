@@ -24,7 +24,7 @@ class HomeController extends Controller
                 $users = User::where('id', $useriD)->get();
                 $userID = Auth::user()->organization_name;
                 $members = Member::where('organ_name', $userID)->count();
-                $payments = Payment::where('organ_name', $userID)->count();
+                $payments = Payment::where('organ_name', $userID)->sum('amount');
                 $events = Event::where('organ_name', $userID)->count();
                 $blogs = Blog::where('organ_name', $userID)->count();
                 return view('organAdmin.home', compact('users', 'members', 'payments', 'events', 'blogs'));
@@ -37,7 +37,7 @@ class HomeController extends Controller
         
             $organ = user::where('role', 'organAdmin')->count();
             $members = Member::count();
-            $payments = Payment::count();
+            $payments = Payment::sum('amount');
             return view('admin.home', compact('organ', 'members', 'payments'));
           }
         } else {
