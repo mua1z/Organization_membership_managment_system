@@ -6,6 +6,12 @@
             <x-authentication-card-logo />
         </x-slot>
 
+        <div class="mt-4">
+    <a href="{{ route('google.login') }}" class="inline-flex items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition ease-in-out duration-150">
+        Login with Google
+    </a>
+</div>
+
         <x-validation-errors class="mb-4" />
 
         @session('status')
@@ -45,17 +51,17 @@
                     {{ __('Log in') }}
                 </x-button>
             </div>
-            
+
             <a href="{{ route('register') }}" class="text-sm text-blue-600 hover:underline">
         Already haven't an account? Register here
     </a>
-            
+
 
 
         </form>
-    
+
     </x-authentication-card>
-   
+
 </div>
 @include('auth.footer')
 

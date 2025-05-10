@@ -6,12 +6,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\organAdminController;
 
+use App\Http\Controllers\Auth\GoogleController;
 
-use Laravel\Socialite\Facades\Socialite;
-use App\Models\User;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
+
 
 
 
@@ -31,25 +28,12 @@ Route::get('/contact', [HomeController::class, 'contact'])->name('guest.contact'
 
 
 
-Route::get('/auth/google/redirect', function () {
-    return Socialite::driver('google')->redirect();
-})->name('google.login');
 
-Route::get('/auth/google/callback', function () {
-    $googleUser = Socialite::driver('google')->user();
 
-    $user = User::firstOrCreate([
-        'email' => $googleUser->getEmail(),
-    ], [
-        'name' => $googleUser->getName(),
-        'password' => Hash::make(Str::random(24)), // Random password since Google is auth source
-        'email_verified_at' => now(),
-    ]);
 
-    Auth::login($user);
+Route::get('/auth/google/redirect', [GoogleController::class, 'redirect'])->name('google.login');
+Route::get('/auth/google/callback', [GoogleController::class, 'callback']);
 
-    return redirect('/home');
-});
 
 
 
