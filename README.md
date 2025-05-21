@@ -1,7 +1,7 @@
 ## ORGANIZATION MEMBERSHIP MANAGEMENT SYSTEM
 
   ## FRONT END(guest page like, home, about, service, event and blog pages etc)
-![Alt text](https://github.com/mua1z/Organization_membership_managment_system/blob/ae2d46519dc55e792247276e7a9bbebdedc541cd/screencapture-127-0-0-1-8000-2025-04-20-21_41_56.png)
+![Alt text](https://github.com/mua1z/Organization_membership_managment_system/blob/master/screencapture-localhost-8000-2025-05-22-02_50_20.png)
 
 
   ## BACKEND(dashbord page likes, SupAdmin(owner of system), organization Admin, and member dashbord)
