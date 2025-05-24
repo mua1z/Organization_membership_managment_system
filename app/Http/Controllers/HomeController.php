@@ -29,12 +29,12 @@ class HomeController extends Controller
                 $blogs = Blog::where('organ_name', $userID)->count();
                 return view('organAdmin.home', compact('users', 'members', 'payments', 'events', 'blogs'));
             }else{
-               
+
                 return redirect()->back();
-             } 
-           
+             }
+
           } else {
-        
+
             $organ = user::where('role', 'organAdmin')->count();
             $members = Member::count();
             $payments = Payment::sum('amount');
@@ -52,7 +52,7 @@ class HomeController extends Controller
     {
         return view('guest.about');
     }
-   
+
     public function service()
     {
         return view('guest.service');
@@ -66,18 +66,18 @@ class HomeController extends Controller
     }
     public function blog()
     {
-        
+
             $blogs = blog::all();
             return view('guest.blogs', compact('blogs'));
-        
-     
-            
-         
-       
+
+
+
+
+
     }
 
-  
-    
+
+
     public function contact()
     {
         return view('guest.contact');

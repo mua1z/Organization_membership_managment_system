@@ -17,31 +17,31 @@ class AdminController extends Controller
 
     {
 
-       
-         
+
+
             $organ = user::all();
             return view('admin.organ', compact('organ' ));
-       
+
         }
-       
-    
+
+
 
     public function orgAdmin()
     {
-       
+
         return view('admin.orgAdmin');
     }
 
     public function orgadmin_upload(Request $request)
     {
         $org =new organadmin;
-      
+
 
         $org->organ_name=$request->organ_name;
         $org->name=$request->name;
         $org->email=$request->email;
         $org->role=$request->role;
-        
+
 
         $org->status=$request->status;
 
@@ -50,10 +50,10 @@ class AdminController extends Controller
             'name' => 'required|string|max:255',
             // other validations...
         ]);
-     
+
         $org->save();
         return redirect()->back()->with('message', 'Organization Admin added successfully!');
-       
+
     }
 
     public function members()
@@ -88,17 +88,17 @@ class AdminController extends Controller
         $org->member=$request->member;
         $org->email=$request->email;
         $org->password=$request->password;
-        
+
 
         $org->organization_type=$request->organization_type;
 
-    
+
         $org->save();
         return redirect()->back()->with('message', 'Organization updated successfully!');
-       
+
     }
-   
-     
+
+
     public function deleteorgan($id)
     {
         $data= user::find($id);
@@ -113,7 +113,7 @@ class AdminController extends Controller
         $data= member::find($id);
         return view('admin.editmembers', compact('data') );
     }
-    
+
     public function updatemember(Request $request, $id)
     {
         $member= member::find($id);
@@ -121,21 +121,21 @@ class AdminController extends Controller
         $imagename=time().'.'.$image->getClientOriginalExtension();
           $request->file->move('imagemember',$imagename);
           $member->photo=$imagename;
-          
+
         $member->name=$request->name;
-      
+
        $member->email=$request->email;
        $member->organ_name=$request->organ_name;
        $member->status=$request->status;
        $member->join_date=$request->join_date;
        $member->password=$request->password;
-     
-      
 
-       
+
+
+
     $member->save();
     return redirect()->back()->with('message', 'Member updated successfully!');
-       
+
     }
 
     public function deletemembers($id)
@@ -165,7 +165,7 @@ class AdminController extends Controller
         $org->member=$request->member;
         $org->email=$request->email;
         $org->password=$request->password;
-        
+
 
         $org->organization_type=$request->organization_type;
 
@@ -174,16 +174,16 @@ class AdminController extends Controller
             'name' => 'required|string|max:255',
             // other validations...
         ]);
-     
+
         $org->save();
         return redirect()->back()->with('message', 'Organization added successfully!');
-       
+
     }
 
     public function payments()
 
     {
-        
+
         $payments = payment::all();
         return view('admin.payments', compact('payments'));
     }
