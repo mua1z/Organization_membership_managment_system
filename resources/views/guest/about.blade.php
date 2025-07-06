@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OMMS - Organization Membership Management System</title>
+    <title>OMMS-About</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
@@ -15,10 +15,10 @@
  <!-- Navigation -->
  <nav class="navbar">
         <div class="container">
-           
+
             <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{url('/')}}" class="logo" style="height: 60px; width: 70px;  margin: bottom 20px;"> <img src="/asset/image.png " alt="logo" ></a>
-        
-           
+
+
             <div class="menu-toggle" id="mobile-menu">
                 <span></span>
                 <span></span>
@@ -43,7 +43,7 @@
             <h2 class="section-title">Our Story & Vision</h2>
             <p class="section-subtitle">Empowering organizations to focus on what truly matters</p>
         </div>
-        
+
         <div class="about-timeline">
             <div class="timeline-item">
                 <div class="timeline-content">
@@ -55,7 +55,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-year">2017</div>
@@ -66,7 +66,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-year">2020</div>
@@ -77,7 +77,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-year">2023</div>
@@ -89,7 +89,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="about-mission">
             <div class="mission-content">
                 <h3>Our Mission</h3>
@@ -116,7 +116,7 @@
                 <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="OMMS Team Working" class="mission-img">
             </div>
         </div>
-        
+
         <div class="team-section">
             <h3>Meet Our Leadership</h3>
             <div class="team-grid">
@@ -149,7 +149,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="values-section">
             <h3>Our Core Values</h3>
             <div class="values-grid">
@@ -200,7 +200,7 @@
                     <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-            
+
             <div class="footer-links">
                 <h3>Company</h3>
                 <ul>
@@ -211,7 +211,7 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-links">
                 <h3>Services</h3>
                 <ul>
@@ -219,10 +219,10 @@
                     <li><a href="#">Event Management</a></li>
                     <li><a href="#">Payment Processing</a></li>
                     <li><a href="#">Reporting & Analytics</a></li>
-               
+
                 </ul>
             </div>
-            
+
             <div class="footer-links">
                 <h3>Resources</h3>
                 <ul>
@@ -233,7 +233,7 @@
                     <li><a href="#">System Status</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-contact">
                 <h3>Contact Us</h3>
                 <p><i class="fas fa-map-marker-alt"></i> Dire dawa, Ethiopia</p>
@@ -241,7 +241,7 @@
                 <p><i class="fas fa-phone"></i> +251939696877</p>
             </div>
         </div>
-        
+
         <div class="footer-bottom">
             <p>&copy; 2025 OMMS. All rights reserved.</p>
             <div class="footer-legal">

@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | OMMS</title>
+    <title>OMMS-Contact</title>
     <link rel="stylesheet" href="/css/contact.css">
     <link rel="stylesheet" href="/css/service.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-   
+
      <!-- Navigation -->
      <nav class="navbar">
         <div class="container">
-           
+
             <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{url('/')}}" class="logo" style="height: 60px; width: 70px;  margin: bottom 20px;"> <img src="/asset/image.png " alt="logo" ></a>
-        
-           
+
+
             <div class="menu-toggle" id="mobile-menu">
                 <span></span>
                 <span></span>
@@ -172,7 +172,7 @@
                         Dire Dawa, Ethiopia
                     </address>
                 </div>
-              
+
             </div>
         </div>
     </section>
@@ -190,7 +190,7 @@
                     <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-            
+
             <div class="footer-links">
                 <h3 style="color: white;">Company</h3>
                 <ul>
@@ -201,7 +201,7 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-links">
                 <h3 style="color: white;">Services</h3>
                 <ul>
@@ -209,10 +209,10 @@
                     <li><a href="#">Event Management</a></li>
                     <li><a href="#">Payment Processing</a></li>
                     <li><a href="#">Reporting & Analytics</a></li>
-               
+
                 </ul>
             </div>
-            
+
             <div class="footer-links">
                 <h3 style="color: white;">Resources</h3>
                 <ul>
@@ -223,7 +223,7 @@
                     <li><a href="#">System Status</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-contact">
                 <h3 style="color: white;">Contact Us</h3>
                 <p><i class="fas fa-map-marker-alt"></i> Dire dawa, Ethiopia</p>
@@ -231,7 +231,7 @@
                 <p><i class="fas fa-phone"></i> +251939696877</p>
             </div>
         </div>
-        
+
         <div class="footer-bottom">
             <p>&copy; 2025 OMMS. All rights reserved.</p>
             <div class="footer-legal">

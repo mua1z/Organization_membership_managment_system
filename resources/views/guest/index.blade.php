@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>guest</title>
+    <title>OMMS-Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/service.css">
-  
+
 </head>
 <body>
-    
 
-    
-    
+
+
+
     <!-- Navigation -->
-     
+
     <nav class="navbar">
         <div class="container">
-           
+
             <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{url('/')}}" class="logo" style="height: 60px; width: 70px;  margin: bottom 20px;"> <img src="/asset/image.png " alt="logo" ></a>
-        
-           
+
+
             <div class="menu-toggle" id="mobile-menu">
                 <span></span>
                 <span></span>
@@ -49,35 +49,35 @@
             <div class="background-slide" style="background-image: url('/asset/c_magnifying_glass_with_illustrative_people_dark.jpg ');"></div>
             <div class="background-slide" style="background-image: url('/asset/eventmanagementpowerpointpresentationslides-210810034621-thumbnail.webp');"></div>
         </div>
-        
+
         <!-- Content Slides -->
         <div class="hero-content" id="heroContent">
-            
+
             <div class="hero-slide active">
-          
+
                 <div class="hero-buttons">
                 <a href="{{route('register')}}" > <button class="hero-button primary">Get start</button></a>
-                <a href="{{url('/service')}}" ><button class="hero-button">Lear more</button></a>    
+                <a href="{{url('/service')}}" ><button class="hero-button">Lear more</button></a>
                 </div>
             </div>
-            
+
             <div class="hero-slide active">
-          
+
           <div class="hero-buttons">
           <a href="{{route('register')}}" > <button class="hero-button primary">Get start</button></a>
-          <a href="{{url('/service')}}" ><button class="hero-button">Lear more</button></a>  
+          <a href="{{url('/service')}}" ><button class="hero-button">Lear more</button></a>
           </div>
       </div>
-            
+
       <div class="hero-slide active">
-          
+
           <div class="hero-buttons">
           <a href="{{route('register')}}" > <button class="hero-button primary">Get start</button></a>
-          <a href="{{url('/service')}}" ><button class="hero-button">Lear more</button></a>  
+          <a href="{{url('/service')}}" ><button class="hero-button">Lear more</button></a>
           </div>
       </div>
         </div>
-        
+
         <!-- Indicators -->
         <div class="indicator-container" id="indicatorContainer">
             <div class="indicator active"></div>
@@ -95,14 +95,14 @@
             const indicators = document.querySelectorAll('.indicator');
             let currentIndex = 0;
             let slideInterval;
-            
+
             function initSlider() {
                 // Set initial active slide
                 updateSlide();
-                
+
                 // Auto-scroll every 2 seconds
                 slideInterval = setInterval(nextSlide, 2000);
-                
+
                 // Click event for indicators
                 indicators.forEach((indicator, index) => {
                     indicator.addEventListener('click', () => {
@@ -110,26 +110,26 @@
                     });
                 });
             }
-            
+
             function nextSlide() {
                 currentIndex = (currentIndex + 1) % slides.length;
                 updateSlide();
             }
-            
+
             function goToSlide(index) {
                 currentIndex = index;
                 updateSlide();
                 // Reset the timer when manually changing slides
                 resetInterval();
             }
-            
+
             function updateSlide() {
                 // Move content
                 heroContent.style.transform = `translateX(-${currentIndex * 100}vw)`;
-                
+
                 // Move background with parallax effect (slower movement)
                 backgroundSlides.style.transform = `translateX(-${currentIndex * 33.33}%)`;
-                
+
                 // Update active class for animation
                 slides.forEach((slide, index) => {
                     if (index === currentIndex) {
@@ -138,7 +138,7 @@
                         slide.classList.remove('active');
                     }
                 });
-                
+
                 // Update indicators
                 indicators.forEach((indicator, index) => {
                     if (index === currentIndex) {
@@ -148,26 +148,26 @@
                     }
                 });
             }
-            
+
             function resetInterval() {
                 clearInterval(slideInterval);
                 slideInterval = setInterval(nextSlide, 2000);
             }
-            
+
             // Pause on hover
             heroContent.addEventListener('mouseenter', () => {
                 clearInterval(slideInterval);
             });
-            
+
             heroContent.addEventListener('mouseleave', resetInterval);
-            
+
             // Initialize slider
             initSlider();
         });
     </script>
 
-    <!-- Hero Section with Dynamic Background 
- 
+    <!-- Hero Section with Dynamic Background
+
 
     <section class="hero">
         <div class="container">
@@ -219,7 +219,7 @@
         <div class="container">
             <h2 class="section-title">Powerful Features</h2>
             <p class="section-subtitle">Everything you need to manage your organization efficiently</p>
-            
+
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -228,7 +228,7 @@
                     <h3>Member Management</h3>
                     <p>Easily manage member profiles, groups, and communication with our intuitive interface.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-calendar-alt"></i>
@@ -236,7 +236,7 @@
                     <h3>Event Coordination</h3>
                     <p>Plan, promote, and track attendance for all your organization's events in one place.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-credit-card"></i>
@@ -244,7 +244,7 @@
                     <h3>Payment Processing</h3>
                     <p>Secure payment collection with support for multiple gateways and recurring billing.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-chart-bar"></i>
@@ -252,7 +252,7 @@
                     <h3>Advanced Analytics</h3>
                     <p>Gain insights into member engagement, event success, and financial performance.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-shield-alt"></i>
@@ -260,7 +260,7 @@
                     <h3>Role-Based Access</h3>
                     <p>Control permissions with customizable roles for admins, staff, and members.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-cogs"></i>
@@ -277,26 +277,26 @@
         <div class="container">
             <h2 class="section-title">Simple Implementation</h2>
             <p class="section-subtitle">Get started in just a few easy steps</p>
-            
+
             <div class="process-steps">
                 <div class="step">
                     <div class="step-number">1</div>
                     <h3>Sign Up</h3>
                     <p>Create your account and set up your organization profile.</p>
                 </div>
-                
+
                 <div class="step">
                     <div class="step-number">2</div>
                     <h3>Import Members</h3>
                     <p>Bring in your existing member database with our easy import tools.</p>
                 </div>
-                
+
                 <div class="step">
                     <div class="step-number">3</div>
                     <h3>Configure Settings</h3>
                     <p>Customize the platform to match your organization's needs.</p>
                 </div>
-                
+
                 <div class="step">
                     <div class="step-number">4</div>
                     <h3>Go Live</h3>
@@ -311,7 +311,7 @@
         <div class="container">
             <h2 class="section-title">Flexible Pricing</h2>
             <p class="section-subtitle">Choose the perfect plan for your organization</p>
-            
+
             <div class="pricing-cards">
                 <div class="pricing-card">
                     <h3>Starter</h3>
@@ -326,7 +326,7 @@
                     </ul>
                     <a href="{{route('register')}}" class="btn secondary-btn">Get Started</a>
                 </div>
-                
+
                 <div class="pricing-card featured">
                     <div class="popular-badge">Most Popular</div>
                     <h3>Professional</h3>
@@ -342,7 +342,7 @@
                     </ul>
                     <a href="{{route('register')}}" class="btn primary-btn">Choose Plan</a>
                 </div>
-                
+
                 <div class="pricing-card">
                     <h3>Enterprise</h3>
                     <div class="price">$99<span>/month</span></div>
@@ -367,7 +367,7 @@
         <div class="container">
             <h2 class="section-title">Trusted by Organizations</h2>
             <p class="section-subtitle">See what our customers say about OMMS</p>
-            
+
             <div class="testimonial-slider">
                 <div class="testimonial-track">
                     <div class="testimonial-slide">
@@ -382,7 +382,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="testimonial-slide">
                         <div class="testimonial-content">
                             <p>"The event management features alone are worth the investment. Our member engagement has increased significantly since we started using OMMS."</p>
@@ -395,7 +395,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="testimonial-slide">
                         <div class="testimonial-content">
                             <p>"As a treasurer, I appreciate how easy it is to track payments and generate financial reports. OMMS has made my volunteer position much more manageable."</p>
@@ -408,7 +408,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="testimonial-slide">
                         <div class="testimonial-content">
                             <p>"The reporting tools have given us insights we never had before. We can now make data-driven decisions about our membership strategy."</p>
@@ -421,7 +421,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="testimonial-slide">
                         <div class="testimonial-content">
                             <p>"Switching to OMMS was the best decision we made this year. The customer support team is incredibly responsive and helpful."</p>
@@ -435,7 +435,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="slider-controls">
                     <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
                     <div class="slider-dots">
@@ -472,7 +472,7 @@
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="footer-links">
                     <h3>Company</h3>
                     <ul>
@@ -483,7 +483,7 @@
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-links">
                     <h3>Services</h3>
                     <ul>
@@ -491,10 +491,10 @@
                         <li><a href="#">Event Management</a></li>
                         <li><a href="#">Payment Processing</a></li>
                         <li><a href="#">Reporting & Analytics</a></li>
-                   
+
                     </ul>
                 </div>
-                
+
                 <div class="footer-links">
                     <h3>Resources</h3>
                     <ul>
@@ -505,7 +505,7 @@
                         <li><a href="#">System Status</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-contact">
                     <h3>Contact Us</h3>
                     <p><i class="fas fa-map-marker-alt"></i> Dire dawa, Ethiopia</p>
@@ -513,7 +513,7 @@
                     <p><i class="fas fa-phone"></i> +251939696877</p>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2025 OMMS. All rights reserved.</p>
                 <div class="footer-legal">
@@ -527,12 +527,12 @@
     </footer>
 
     <script src="/js/script.js"></script>
-    
+
     <script src="/js/event.js"></script>
 
-    
-       
-        
+
+
+
 
 </body>
 </html>
