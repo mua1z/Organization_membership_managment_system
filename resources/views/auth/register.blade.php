@@ -1,3 +1,11 @@
+Name, Emaile, Select role, Phone Plan, Password, are comon for all of them
+
+Show for only member Organ field and sex
+
+Therefore the form will change to the following after fill name, email and chose member role Organ field and sex only for member
+Plan
+Phone
+ Password but, not change any thing for admin and organizatin and stay former style  for all
 <x-guest-layout>
     @include('auth.navb')
     <div class="flex items-center justify-center min-h-screen px-4 py-12 mt-10 bg-green-500 sm:px-6 lg:px-8">
@@ -64,45 +72,6 @@
                                                      placeholder="john@example.com" />
                                         </div>
                                     </div>
-
-                                    <div class="w-full">
-    <x-label for="role" value="{{ __('Role') }}" class="block w-full mb-1 text-sm font-medium text-gray-700" />
-    <select id="role" name="role"
-            class="block w-full px-4 py-3 transition duration-200 bg-white border border-gray-300 shadow-sm rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500"
-            required>
-        <option value="">Select Role</option>
-        <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>
-        <option value="organization" {{ old('role') == 'organization' ? 'selected' : '' }}>Organization</option>
-        <option value="member" {{ old('role') == 'member' ? 'selected' : '' }}>Member</option>
-    </select>
-</div>
-<div class="w-full">
-    <x-label for="organization_field" value="{{ __('Organization') }}" class="block w-full mb-1 text-sm font-medium text-gray-700" />
-    <select id="organization_field" name="organization_field"
-            class="block w-full px-4 py-3 transition duration-200 bg-white border border-gray-300 shadow-sm rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500"
-            required>
-        <option value="">Select Organization</option>
-        @foreach($organizations as $org)
-            <option value="{{ $org->id }}" {{ old('organization_field') == $org->id ? 'selected' : '' }}>
-                {{ $org->name }}
-            </option>
-        @endforeach
-    </select>
-</div>
-
-
-        <div class="w-full">
-            <x-label for="sex" value="{{ __('Sex') }}" class="block w-full mb-1 text-sm font-medium text-gray-700" />
-            <select id="sex" name="sex"
-                    class="block w-full px-4 py-3 transition duration-200 bg-white border border-gray-300 shadow-sm rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500">
-                <option value="">Select Sex</option>
-                <option value="male" {{ old('sex') == 'male' ? 'selected' : '' }}>Male</option>
-                <option value="female" {{ old('sex') == 'female' ? 'selected' : '' }}>Female</option>
-            </select>
-        </div>
-    </div>
-</div>
-
 
                                     <div class="grid w-full grid-cols-1 gap-6 md:grid-cols-2">
                                         <div class="w-full">
@@ -297,23 +266,4 @@
             document.getElementById('formSubtitle').textContent = 'Sign up with email and start your journey';
         });
     </script>
-    <script>
-    const roleSelect = document.getElementById('role');
-    const memberFields = document.getElementById('memberFields');
-
-    function toggleMemberFields() {
-        if (roleSelect.value === 'member') {
-            memberFields.classList.remove('hidden');
-        } else {
-            memberFields.classList.add('hidden');
-        }
-    }
-
-    // Run on page load (if old value is member)
-    toggleMemberFields();
-
-    // Listen for changes
-    roleSelect.addEventListener('change', toggleMemberFields);
-</script>
-
 </x-guest-layout>

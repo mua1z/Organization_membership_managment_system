@@ -82,10 +82,6 @@ class HomeController extends Controller
     {
         return view('guest.contact');
     }
-    public function create()
-{
-    $organizations = \App\Models\User::where('role', 'organAdmin')->get();
-    return view('auth.register', compact('organizations'));
-}
+
 
 }
