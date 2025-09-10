@@ -125,6 +125,7 @@ Phone
                                                  placeholder="10" />
                                     </div>
 
+
                                     <!-- Password Fields -->
                                     <div class="grid w-full grid-cols-1 gap-6 md:grid-cols-2">
                                         <div class="w-full">

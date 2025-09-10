@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Actions\Fortify;
+use Illuminate\Http\Request;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -22,7 +23,7 @@ class CreateNewUser implements CreatesNewUsers
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'sex' => ['nullable', 'in:male,female,other'],
+         //'sex' => ['nullable', 'in:male,female,other'],
         'join_date' => ['nullable', 'date'],
         'address' => ['nullable', 'string', 'max:500'],
         'phone' => ['nullable', 'string', 'max:20'],
@@ -37,13 +38,15 @@ class CreateNewUser implements CreatesNewUsers
         return User::create([
             'name' => $input['name'],
             'email' => $input['email'],
-            'sex' => $input['sex'],
-         'join_date' => $input['join_date'],
-            'address' => $input['address'],
+         'sex' => $input['sex'] ?? null,
+         'join_date' => $input['join_date'] ?? null,
+           // 'address' => $input['address'],
+            'address' => $input['address'] ?? null,
             'phone' => $input['phone'] ,
             'organization_name' => $input['organization_name'],
             'organization_type' => $input['organization_type'],
             'plan' => $input['plan'],
+            'role' => $input['role'] ?? 'organAdmin',
             'member' => $input['member'],
             'password' => Hash::make($input['password']),
         ]);

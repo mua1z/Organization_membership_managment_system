@@ -55,29 +55,26 @@ class HomeController extends Controller
                 $payments = Payment::where('organ_name', $userID)->sum('amount');
                 $events = Event::where('organ_name', $userID)->count();
                 $blogs = Blog::where('organ_name', $userID)->count();
-                return view('organAdmin.home', compact('users', 'members', 'payments', 'events', 'blogs'));
-            } else {
-                return redirect()->back();
-            }
+                return view('organAdmin.home', compact('users', 'members', 'payments', 'events', 'blogs'));}
 
-        } else {
+        } elseif (Auth::user()->role == 'SuperAdmin') {
             // Admin logic stays unchanged
             $organ = user::where('role', 'organAdmin')->count();
            $members = User::count();
             $payments = Payment::sum('amount');
             return view('admin.home', compact('organ','members', 'payments'));
-        }
 
+
+
+
+    // ✅ Member role handling
+} elseif (Auth::user()->role == 'member') {
+        $user = Auth::user();
+        return view('member.home', compact('user'));
     } else {
         return redirect()->back();
     }
-
-    // ✅ Member role handling
-    if (Auth::user()->role == 'member') {
-        $user = Auth::user();
-        return view('member.home', compact('user'));
-    }
-
+}
     }
     public function index()
     {
