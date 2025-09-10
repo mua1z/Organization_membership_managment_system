@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('phone')->nullable(); // Phone number
-            $table->enum('role', ['guest', 'organAdmin', 'SuperAdmin'])->default('organAdmin'); // User roles
+            $table->enum('role', ['member', 'organAdmin', 'SuperAdmin'])->default('organAdmin'); // User roles
             $table->string('organization_name')->nullable(); // Organization Name
             $table->string('organization_type', 255, ['business', 'nonprofit', 'government', 'other'])->nullable(); // Organization Type
             $table->string('plan', 255, ['basic', 'pro', 'enter'])->nullable(); // Organization Type

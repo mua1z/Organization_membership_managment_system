@@ -9,6 +9,7 @@ use App\Models\Event;
 use App\Models\Blog;
 use App\Models\Member;
 
+
 use App\Models\Payment;
 
 
@@ -16,7 +17,7 @@ class HomeController extends Controller
 {
     public function redirect()
     {
-        if (Auth::id()) {
+      /*  if (Auth::id()) {
 
           if (Auth::user()->role == 'organAdmin') {
             if(Auth::id()){
@@ -42,7 +43,41 @@ class HomeController extends Controller
           }
         } else {
             return redirect()->back();
+        }*/
+            if (Auth::id()) {
+
+        if (Auth::user()->role == 'organAdmin') {
+            if(Auth::id()){
+                $useriD = Auth::user()->id;
+                $users = User::where('id', $useriD)->get();
+                $userID = Auth::user()->organization_name;
+               $members = User::where('organization_name', $userID)->count();
+                $payments = Payment::where('organ_name', $userID)->sum('amount');
+                $events = Event::where('organ_name', $userID)->count();
+                $blogs = Blog::where('organ_name', $userID)->count();
+                return view('organAdmin.home', compact('users', 'members', 'payments', 'events', 'blogs'));
+            } else {
+                return redirect()->back();
+            }
+
+        } else {
+            // Admin logic stays unchanged
+            $organ = user::where('role', 'organAdmin')->count();
+           $members = User::count();
+            $payments = Payment::sum('amount');
+            return view('admin.home', compact('organ','members', 'payments'));
         }
+
+    } else {
+        return redirect()->back();
+    }
+
+    // ✅ Member role handling
+    if (Auth::user()->role == 'member') {
+        $user = Auth::user();
+        return view('member.home', compact('user'));
+    }
+
     }
     public function index()
     {

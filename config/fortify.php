@@ -17,6 +17,7 @@ return [
 
     'guard' => 'web',
 
+
     /*
     |--------------------------------------------------------------------------
     | Fortify Password Broker
@@ -103,6 +104,9 @@ return [
 
     'middleware' => ['web'],
 
+
+
+
     /*
     |--------------------------------------------------------------------------
     | Rate Limiting
@@ -146,7 +150,7 @@ return [
     'features' => [
         Features::registration(),
         Features::resetPasswords(),
-        Features::emailVerification(),
+     //   Features::emailVerification(),
         Features::updateProfileInformation(),
         Features::updatePasswords(),
 

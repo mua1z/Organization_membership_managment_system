@@ -13,7 +13,7 @@
     <div class="dashboard-container">
         <!-- Sidebar Navigation -->
         @include('organAdmin.sidebar nav')
-        
+
         <!-- Main Content Area -->
         <main class="main-content">
             <header class="main-header">
@@ -22,7 +22,7 @@
                    <a href="{{url('addmember')}}"> <button class="btn btn-primary" id="addMemberBtn" >
                         <i class="fas fa-plus"></i> Add Member page
                     </button></a>
-                
+
                     <button class="btn btn-notification">
                         <i class="fas fa-bell"></i>
                         <span class="notification-badge">3</span>
@@ -32,19 +32,19 @@
                      </x-app-layout>
                 </div>
             </header>
-            
+
             <!-- Page Description -->
             <div class="page-description">
                 <p>Manage your organization members</p>
             </div>
-            
+
             <!-- Member Actions Bar -->
             <div class="action-bar">
                 <div class="search-box">
                     <i class="fas fa-search"></i>
                     <input type="text" placeholder="Search members..." id="memberSearch">
                 </div>
-                
+
                 <div class="action-buttons">
                     <button class="btn btn-outline" id="exportBtn">
                         <i class="fas fa-file-export"></i> Export
@@ -78,69 +78,87 @@
     </div>
 @endif
 
-<form id="addMemberForm" action="{{url('upload_member')}}" method="POST" enctype="multipart/form-data">
-                            @csrf
-                            <div class="form-group">
-                                <label for="name">Full Name</label>
-                                <input type="text" id="name" name="name" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="organ_name">Oranization Name</label>
-                                <input type="text" id="organ_name" name="organ_name" class="form-control" required>
-                            </div>
-                         
-                            <div class="form-group">
-                                <label for="email">Email Address</label>
-                                <input type="email" id="email" name="email" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="role">Role</label>
-                                <select id="role" name="role" class="form-control" >
-                                    <option value="member">Member</option>
-                                    <option value="treasurer">Treasurer</option>
-                                    <option value="secretary">Secretary</option>
-                                    <option value="admin">Admin</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="status">Status</label>
-                                <select id="status" name="status" class="form-control">
-                                    <option value="active">Active</option>
-                                    <option value="inactive">Inactive</option>
-                                    <option value="pending">Pending</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                            <label for="join_date">Join Date:</label>
-  <input type="date" id="join_date" name="join_date" >
-  </div>
-  <div class="form-group">
-  <label for="last_active">Last Active:</label>
-  <input type="text" id="last_active" name="last_active" placeholder="e.g., 2 hours ago">
-  </div>
+<form id="addMemberForm" action="{{ url('upload_member') }}" method="POST" enctype="multipart/form-data">
+    @csrf
 
-  <div class="form-group">
-  <label for="password">Password: </label>
-  <input type="password" id="password" name="password" >
+    <!-- Full Name -->
+    <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" class="form-control" required>
     </div>
-  <div class="form-group">
-  <label for="photo">Photo:</label>
-  <input type="file" id="file" name="file" >
+
+    <!-- Organization Name (manual) -->
+    <div class="form-group">
+        <label for="organ_name">Organization Name</label>
+        <input type="text" id="organ_name" name="organ_name" class="form-control" required>
     </div>
-                            <div class="form-group">
-                                <label>
-                                    <input type="checkbox" id="sendInvite"> Send invitation email
-                                </label>
-                            </div>
-                      
-                   
-                    <div class="modal-footer">
-                        <button class="btn btn-outline modal-close">Cancel</button>
-                        <button class="btn btn-primary" type="submit" form="addMemberForm">Add Member</button>
-                       
-                        
-                    </div>
-                </form>
+
+    <!-- Email -->
+    <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" class="form-control" required>
+    </div>
+
+    <!-- Sex -->
+    <div class="form-group">
+        <label for="sex">Sex</label>
+        <select id="sex" name="sex" class="form-control">
+            <option value="">Select Sex</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+    </div>
+
+    <!-- Phone -->
+    <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="text" id="phone" name="phone" class="form-control">
+    </div>
+
+    <!-- Address -->
+    <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address" class="form-control">
+    </div>
+
+    <!-- Join Date -->
+    <div class="form-group">
+        <label for="join_date">Join Date</label>
+        <input type="date" id="join_date" name="join_date" class="form-control">
+    </div>
+
+    <!-- Password -->
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" class="form-control" required>
+    </div>
+
+    <!-- Confirm Password -->
+    <div class="form-group">
+        <label for="password_confirmation">Confirm Password</label>
+        <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" required>
+    </div>
+
+    <!-- Photo -->
+    <div class="form-group">
+        <label for="file">Photo</label>
+        <input type="file" id="file" name="file" class="form-control">
+    </div>
+
+    <!-- Send Invitation Checkbox -->
+    <div class="form-group form-check">
+        <input type="checkbox" id="sendInvite" name="sendInvite" class="form-check-input">
+        <label class="form-check-label" for="sendInvite">Send invitation email</label>
+    </div>
+
+    <!-- Submit / Cancel -->
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline modal-close">Cancel</button>
+        <button class="btn btn-primary" type="submit" form="addMemberForm">Add Member</button>
+    </div>
+</form>
+
 </div>
 </main>
     </div>

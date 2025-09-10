@@ -17,7 +17,7 @@ class organAdminController extends Controller
 {
     public function member()
     {
-       
+
         if(Auth::id()){
             $userID = Auth::user()->organization_name;
             $useriD = Auth::user()->id;
@@ -25,14 +25,14 @@ class organAdminController extends Controller
             $users = User::where('id', $useriD)->get();
             return view('organAdmin.member', compact('member', 'users'));
         }else{
-           
+
             return redirect()->back();
          }
-           
-                                                                                         
-        
-    }                                                           
- 
+
+
+
+    }
+
     public function sidebar()
     {
         if(Auth::id()){
@@ -40,10 +40,10 @@ class organAdminController extends Controller
             $users = User::where('id', $useriD)->get();
             return view('organAdmin.sidebar nav', compact('users'));
         }else{
-           
+
             return redirect()->back();
          }
-       
+
     }
 
     public function editprofile($id)
@@ -55,7 +55,7 @@ class organAdminController extends Controller
 
             return view('organAdmin.edit_profile', compact('users','data'));
         }else{
-           
+
             return redirect()->back();
          }
     }
@@ -70,20 +70,20 @@ class organAdminController extends Controller
 
         $org->organization_name=$request->organization_name;
         $org->name=$request->name;
-       
+
         $org->email=$request->email;
         $org->password=$request->password;
-        
+
 
         $org->organization_type=$request->organization_type;
 
-    
+
         $org->save();
         return redirect()->back()->with('message', 'Profile changed successfully!');
-       
+
     }
 
-   
+
     public function addmember()
     {
         if(Auth::id()){
@@ -91,7 +91,7 @@ class organAdminController extends Controller
             $users = User::where('id', $useriD)->get();
             return view('organAdmin.addmember', compact('users'));
         }else{
-           
+
             return redirect()->back();
          }
     }
@@ -103,13 +103,13 @@ class organAdminController extends Controller
             $data= member::find($id);
             return view('organAdmin.edit',compact('data', 'users') );
         }else{
-           
+
             return redirect()->back();
          }
-      
+
     }
 
-      
+
     public function deletemember($id)
     {
         $data= member::find($id);
@@ -128,53 +128,64 @@ class organAdminController extends Controller
         $imagename=time().'.'.$image->getClientOriginalExtension();
           $request->file->move('imagemember',$imagename);
           $member->photo=$imagename;
-          
+
         $member->name=$request->name;
-      
+
        $member->email=$request->email;
        $member->role=$request->role;
        $member->status=$request->status;
        $member->join_date=$request->join_date;
        $member->password=$request->password;
-      
 
-       
+
+
     $member->save();
     return redirect()->back()->with('message', 'Member updated successfully!');
-       
+
     }
 
 
-    public function upload(Request $request)
-    {
-       $member = new member;
-       $image=$request->file;
-       $imagename=time().'.'.$image->getClientOriginalExtension();
-         $request->file->move('imagemember',$imagename);
-         $member->photo=$imagename;
-     
-   
+public function upload(Request $request)
+{
+    $photoName = null;
+    if ($request->hasFile('photo')) {
+        $image = $request->file('photo');
+        $photoName = time().'.'.$image->getClientOriginalExtension();
+        $image->move(public_path('imagemember'), $photoName);
+    }
 
-      
-       $member->name=$request->name;
-         $member->organ_name=$request->organ_name;
-       $member->email=$request->email;
-       $member->role=$request->role;
-       $member->status=$request->status;
-       $member->join_date=$request->join_date;
-       $member->password=$request->password;
-       
-       $member->last_active=$request->last_active;
+    $member = User::create([
+        'name' => $request->name,
+        'organization_name' => $request->organization_name,
+        'email' => $request->email,
+        'phone' => $request->phone,
+        'address' => $request->address,
+        'sex' => $request->sex,
+        'join_date' => $request->join_date,
+        'role' => 'member', // 🚀 forced automatically
+        'password' => \Illuminate\Support\Facades\Hash::make($request->password),
+        'photo' => $photoName,
+    ]);
+
+
 
        $request->validate([
-        'email' => 'required|email|unique:members,email',
+
         'name' => 'required|string|max:255',
-   
+        'organ_name' => 'required|string|max:255',
+        'email' => 'required|email|unique:users,email',
+        'phone' => 'nullable|string|max:20',
+        'address' => 'nullable|string|max:500',
+        'sex' => 'nullable|in:male,female,other',
+        'join_date' => 'nullable|date',
+        'password' => 'required|string|min:8|confirmed', // needs password_confirmation
+        'photo' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+
         // other validations...
     ]);
-    
+
     $member->save();
-                   
+
     return redirect()->back()->with('message', 'Member added successfully!');
         //return redirect()->back()->with('success', 'Member added successfully!');
     }
@@ -190,10 +201,10 @@ class organAdminController extends Controller
         $events = Event::where('organ_name', $userID)->get();
         return view('organAdmin.event', compact('events', 'users'));
     }else{
-       
+
         return redirect()->back()->with('message', 'Event did not create yet! ');
      }
-       
+
     }
 
     public function uploadevent( Request $request)
@@ -212,7 +223,7 @@ class organAdminController extends Controller
             'status' => 'required|in:draft,upcoming,published',
             'send_notifications' => 'boolean',*/
         ]);
-    
+
         $event = new event;
         $image=$request->file;
         $imagename=time().'.'.$image->getClientOriginalExtension();
@@ -230,7 +241,7 @@ class organAdminController extends Controller
         $event->rsvp_deadline=$request->rsvp_deadline;
         $event->status=$request->status;
         $event->organ_name=$request->organ_name;
-    
+
         $event->save();
         return redirect()->back()->with('message', 'Event added successfully!');
         //return redirect()->back()->with('success', 'Event added successfully!');
@@ -245,11 +256,11 @@ class organAdminController extends Controller
 
             return view('organAdmin.editevent', compact('users','data'));
         }else{
-           
+
             return redirect()->back();
          }
-        
-      
+
+
     }
 
     public function updateevent(Request $request, $id)
@@ -271,13 +282,13 @@ class organAdminController extends Controller
        $event->rsvp_deadline=$request->rsvp_deadline;
        $event->status=$request->status;
        $event->organ_name=$request->organ_name;
-   
+
        $event->save();
        return redirect()->back()->with('message', 'Event updated successfully!');
        //return redirect()->back()->with('success', 'Event added successfully!');
     }
-    
-      
+
+
     public function deleteevent($id)
     {
         $data= event::find($id);
@@ -286,7 +297,7 @@ class organAdminController extends Controller
        return redirect()->back()->with('message', 'Event deleted successfully!');
 
     }
-  
+
 
 
     public function blog()
@@ -298,10 +309,10 @@ class organAdminController extends Controller
             $users = User::where('id', $useriD)->get();
             return view('organAdmin.blog', compact('blogs','users'));
         }else{
-           
+
             return redirect()->back()->with('message', 'Blogs did not post yet! ');
          }
-        
+
     }
     public function uploadblog( Request $request)
     {
@@ -319,7 +330,7 @@ class organAdminController extends Controller
             'status' => 'required|in:draft,upcoming,published',
             'send_notifications' => 'boolean',*/
         ]);
-    
+
         $blog = new blog;
         $image=$request->file;
         $imagename=time().'.'.$image->getClientOriginalExtension();
@@ -330,7 +341,7 @@ class organAdminController extends Controller
         $blog->content=$request->content;
         $blog->status=$request->status;
         $blog->organ_name=$request->organ_name;
-    
+
         $blog->save();
         return redirect()->back()->with('message', 'Blog posted successfully!');
         //return redirect()->back()->with('success', 'Event added successfully!');
@@ -345,16 +356,16 @@ class organAdminController extends Controller
 
             return view('organAdmin.editblog', compact('users','data'));
         }else{
-           
+
             return redirect()->back();
-         }   
-      
+         }
+
     }
 
     public function updateblog(Request $request, $id)
     {
        $blog = blog::find($id);
-       
+
         $image=$request->file;
         $imagename=time().'.'.$image->getClientOriginalExtension();
           $request->file->move('imageblog',$imagename);
@@ -364,7 +375,7 @@ class organAdminController extends Controller
         $blog->content=$request->content;
         $blog->status=$request->status;
         $blog->organ_name=$request->organ_name;
-    
+
         $blog->save();
         return redirect()->back()->with('message', 'Blog updated successfully!');
        //return redirect()->back()->with('success', 'Event added successfully!');
@@ -388,13 +399,13 @@ class organAdminController extends Controller
             $users = User::where('id', $useriD)->get();
             return view('organAdmin.payment', compact('users', 'payments'));
         }else{
-           
+
             return redirect()->back();
          }
-       
+
     }
 
-    
+
     public function uploadpayment(Request $request)
     {
        $payment = new payment;
@@ -404,10 +415,10 @@ class organAdminController extends Controller
       $payment->amount=$request->amount;
       $payment->billing=$request->billing;
       $payment->payment_method=$request->payment_method;
-     
-    
+
+
    $payment->save();
-                  
+
    return redirect()->back()->with('message', 'Payment completed successfully!');
 
     }

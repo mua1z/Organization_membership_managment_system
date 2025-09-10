@@ -29,6 +29,9 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $fillable = [
         'name',
         'email',
+         'sex',
+    'join_date',
+    'address',
         'phone',
         'organization_name',
         'organization_type',
@@ -73,7 +76,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
     public function organization()
 {
-    return $this->belongsTo(Organization::class);
+    return $this->belongsTo(organAdmin::class);
 }
     public function members()
 {

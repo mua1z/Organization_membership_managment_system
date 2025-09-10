@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\organAdminController;
 
+
+
 use App\Http\Controllers\Auth\GoogleController;
 
 
@@ -38,6 +40,10 @@ Route::get('/auth/google/callback', [GoogleController::class, 'callback']);
 
 
 Route::get('/home', [HomeController::class, 'redirect'])->middleware('auth', 'verified');
+
+
+
+
 
 Route::middleware([
     'auth:sanctum',
