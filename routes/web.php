@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\organAdminController;
+use App\Http\Controllers\PlanController;
 
 
 
@@ -78,6 +79,8 @@ Route::get('/member', [organAdminController::class, 'member']);
 Route::get('/event', [organAdminController::class, 'event']);
 Route::get('/blog', [organAdminController::class, 'blog']);
 Route::get('/payment', [organAdminController::class, 'payment']);
+ Route::get('organAdmin/plans/upgrade', [PlanController::class, 'ShowUpgradePlan'])->name('organAdmin.plans.upgrade');
+ Route::post('organAdmin/plans/upgrade', [PlanController::class, 'UpgradePlan'])->name('organAdmin.plans.upgrade');
 
 Route::get('/sidebar nav', [organAdminController::class, 'sidebar']);
 Route::get('/edit_profile/{id}', [organAdminController::class, 'editprofile']);

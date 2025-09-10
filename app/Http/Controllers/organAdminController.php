@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Models\Event;
 use App\Models\Blog;
 use App\Models\Payment;
+use App\Models\Plan;
+
 
 use Illuminate\Support\Facades\Auth;
 
@@ -154,15 +156,28 @@ public function upload(Request $request)
         $image->move(public_path('imagemember'), $photoName);
     }
 
+$org = auth()->user();
+$currentMembers = User::where('organization_name', $org->organization_name)->count();
+ if ($currentMembers >= $org->plan->max_members) {
+    return back()->with('error', 'You reached your member limit. Upgrade your plan!');
+}
+
+
+      $defaultPlan = Plan::where('type', 'member')->where('name', 'Basic')->first();
+    $expiry = now()->addDays($defaultPlan->duration_days);
+
     $member = User::create([
         'name' => $request->name,
-        'organization_name' => $request->organization_name,
+        //'organization_name' => $request->organization_name,
         'email' => $request->email,
         'phone' => $request->phone,
         'address' => $request->address,
         'sex' => $request->sex,
         'join_date' => $request->join_date,
         'role' => 'member', // 🚀 forced automatically
+        'organization_name' => Auth::user()->organization_name,
+        'plan_id' => $defaultPlan->id,
+        'plan_expiry' => $expiry,
         'password' => \Illuminate\Support\Facades\Hash::make($request->password),
         'photo' => $photoName,
     ]);

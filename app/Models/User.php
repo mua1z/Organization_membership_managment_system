@@ -36,10 +36,13 @@ class User extends Authenticatable
         'phone',
         'organization_name',
         'organization_type',
-        'plan',
+        //'plan',
         'member',
         'role',
         'password',
+        'plan_id',
+        'plan_expiry',
+
         'google_id',
     ];
 
@@ -76,6 +79,13 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+public function isExpired()
+{
+    return $this->plan_expiry && now()->greaterThan($this->plan_expiry);
+}
+
+
     public function organization()
 {
     return $this->belongsTo(organAdmin::class);
@@ -83,5 +93,12 @@ class User extends Authenticatable
     public function members()
 {
     return $this->hasMany(Member::class);
+
 }
+
+public function plan()
+{
+    return $this->belongsTo(Plan::class, 'plan_id');
+}
+
 }
