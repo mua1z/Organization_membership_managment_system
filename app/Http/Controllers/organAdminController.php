@@ -23,7 +23,7 @@ class organAdminController extends Controller
         if(Auth::id()){
             $userID = Auth::user()->organization_name;
             $useriD = Auth::user()->id;
-            $member = member::where('organ_name', $userID)->get();
+            $member =User::where('organization_name', $userID)->where('role', 'member')->get();
             $users = User::where('id', $useriD)->get();
             return view('organAdmin.member', compact('member', 'users'));
         }else{

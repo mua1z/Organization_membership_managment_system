@@ -51,7 +51,7 @@ class HomeController extends Controller
                 $useriD = Auth::user()->id;
                 $users = User::where('id', $useriD)->get();
                 $userID = Auth::user()->organization_name;
-               $members = User::where('organization_name', $userID)->count();
+               $members = User::where('organization_name', $userID)->where('role', 'member')->count();
                 $payments = Payment::where('organ_name', $userID)->sum('amount');
                 $events = Event::where('organ_name', $userID)->count();
                 $blogs = Blog::where('organ_name', $userID)->count();
@@ -69,8 +69,17 @@ class HomeController extends Controller
 
     // ✅ Member role handling
 } elseif (Auth::user()->role == 'member') {
-        $user = Auth::user();
-        return view('member.home', compact('user'));
+    if(Auth::id()){
+                $userid = Auth::user()->id;
+               $users = User::where('id', $userid)->get();
+         $orgName = Auth::user()->organization_name;
+
+        $events = Event::where('organ_name', $orgName)->count();
+        $blogs = Blog::where('organ_name', $orgName)->count();
+        $payments = Payment::where('organ_name', $orgName)->sum('amount');
+
+        return view('member.home', compact('users','events', 'blogs', 'payments'));}
+
     } else {
         return redirect()->back();
     }

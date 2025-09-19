@@ -13,7 +13,7 @@
 <body>
     <div class="dashboard-container">
     @include('organAdmin.sidebar nav')
-        
+
         <!-- Main Content Area -->
         <main class="main-content">
             <header class="main-header">
@@ -22,7 +22,7 @@
                    <a href="{{url('addmember')}}"> <button class="btn btn-primary" id="addMemberBtn" >
                         <i class="fas fa-plus"></i> Add Member
                     </button></a>
-                
+
                     <button class="btn btn-notification">
                         <i class="fas fa-bell"></i>
                         <span class="notification-badge">3</span>
@@ -32,19 +32,19 @@
                      </x-app-layout>
                 </div>
             </header>
-            
+
             <!-- Page Description -->
             <div class="page-description">
                 <p>Manage your organization members</p>
             </div>
-            
+
             <!-- Member Actions Bar -->
             <div class="action-bar">
                 <div class="search-box">
                     <i class="fas fa-search"></i>
                     <input type="text" placeholder="Search members..." id="memberSearch">
                 </div>
-                
+
                 <div class="action-buttons">
                     <button class="btn btn-outline" id="exportBtn">
                         <i class="fas fa-file-export"></i> Export
@@ -67,10 +67,10 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Member Table -->
             <div class="card">
-                
+
             <div class="modal-body" style="padding: 20px; font-family: Arial, sans-serif;">
 @if(session()->has('message'))
     <div class="alert alert-success" style="background-color: blue; color: white; padding: 15px; margin-bottom: 20px; border: 1px solid #c3e6cb; border-radius: 4px; position: relative;">
@@ -80,7 +80,7 @@
         {{session()->get('message')}}
     </div>
 @endif
-</div> 
+</div>
                 <div class="table-responsive">
                     <table class="member-table">
                         <thead>
@@ -98,7 +98,7 @@
                         </thead>
                         <tbody>
                             <!-- Member Row 1 -->
-                          
+
                             @foreach ($member as $members)
                             @php
                                  $date = $members->created_at;
@@ -110,7 +110,7 @@
                                 <td>
                                     <div class="member-info">
 
-                                      
+
 <img src="imagemember/{{$members->photo}}" alt="{{$members->name}}" class="member-avatar">
 
 
@@ -140,18 +140,18 @@
                                             <a href="{{url('deletemember', $members->id)}}" class="dropdown-item text-danger"><i class="fas fa-trash-alt"></i> Remove</a>
                                             <a href="#" class="dropdown-item"><i class="fas fa-envelope"></i> Message</a>
                                             <div class="dropdown-divider"></div>
-                                          
+
                                         </div>
                                     </div>
                                 </td>
                             </tr>
-                            @endforeach 
-                            
-                            
+                            @endforeach
+
+
                         </tbody>
                     </table>
                 </div>
-                
+
                 <!-- Table Footer -->
                 <div class="table-footer">
                     <div class="table-info">
@@ -172,21 +172,21 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Add Member Modal-->
             <div class="modal" id="addMemberModal">
                 <div class="modal-dialog">
                     <div class="modal-header">
-                   
+
                         <button class="btn btn-icon modal-close" >
                             <i class="fas fa-times"></i>
                         </button>
                     </div>
                     <div class="modal-body">
-               
-            
 
-                    
+
+
+
                 </div>
 </div>
         </main>

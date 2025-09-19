@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\organAdminController;
 use App\Http\Controllers\PlanController;
+use App\Http\Controllers\MemberController;
 
 
 
@@ -105,6 +106,13 @@ Route::post('/updateblog/{id}', [organAdminController::class, 'updateblog']);
 Route::get('/deleteblog/{id}', [organAdminController::class, 'deleteblog']);
 
 Route::post('/uploadpayment', [organAdminController::class, 'uploadpayment']);
+
+
+Route::get('/sidebar nav', [MemberController::class, 'sidebar1']);
+
+Route::get('/event', [MemberController::class, 'event1']);
+
+Route::get('/profile', [MemberController::class, 'profile']);
 
 
 

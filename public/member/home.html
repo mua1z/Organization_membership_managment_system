@@ -144,13 +144,16 @@
       font-weight: bold;
     }
 
-    /* Responsive */
+
+     /* Responsive */
+
+    /* Responsive*/
     @media (max-width: 768px) {
       body {
         flex-direction: column;
       }
       .sidebar {
-        display: none; /* Hide sidebar */
+        display: none;
       }
       .section {
         grid-template-columns: 1fr;
@@ -160,7 +163,7 @@
       }
       .bottom-nav {
         display: flex; /* Show bottom nav only on mobile/tablet */
-      }
+}
     }
   </style>
 </head>
@@ -169,9 +172,9 @@
   <div class="sidebar">
     <h2>Member Dashboard</h2>
     <ul>
-        <li class="active"><a href="{{url('/home')}}">📊 Overview</a></li>
-      <li><a href="{{url('/profile')}}">👤 Profile</a></li>
-      <li><a href="{{url('/event')}}">📅 Events</a></li>
+      <li class="active"><a href="home.html">📊 Overview</a></li>
+      <li><a href="profile.html">👤 Profile</a></li>
+      <li><a href="event.html">📅 Events</a></li>
       <li><a href="blog.html">📰 Blog</a></li>
       <li><a href="#">💳 Payments</a></li>
     </ul>
@@ -179,11 +182,6 @@
 
   <!-- Main -->
   <div class="main">
-    <x-app-layout>
-
-
-
-                    </x-app-layout>
     <div class="header">
       <h1>Welcome back, John!</h1>
       <p>Here’s your membership overview for today</p>

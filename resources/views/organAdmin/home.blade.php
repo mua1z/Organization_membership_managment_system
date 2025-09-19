@@ -14,7 +14,7 @@
     <div class="dashboard-container">
         <!-- Sidebar Navigation -->
        @include('organAdmin.sidebar nav')
-        
+
         <!-- Main Content Area -->
         <main class="main-content">
             <header class="main-header">
@@ -34,7 +34,7 @@
                     </x-app-layout>
                 </div>
             </header>
-            
+
             <!-- Stats Cards -->
             <section class="stats-section">
                 <div class="stat-card">
@@ -49,7 +49,7 @@
                         <i class="fas fa-users"></i>
                     </div>
                 </div>
-                
+
                 <div class="stat-card">
                     <div class="stat-content">
                         <h3>Active Events</h3>
@@ -62,7 +62,7 @@
                         <i class="fas fa-calendar-alt"></i>
                     </div>
                 </div>
-                
+
                 <div class="stat-card">
                     <div class="stat-content">
                         <h3>Total blogs</h3>
@@ -75,7 +75,7 @@
                         <i class="fas fa-clipboard-check"></i>
                     </div>
                 </div>
-                
+
                 <div class="stat-card">
                     <div class="stat-content">
                         <h3> Total Paid Payments</h3>
@@ -89,7 +89,7 @@
                     </div>
                 </div>
             </section>
-            
+
             <!-- Two Column Layout -->
             <div class="two-column-layout">
                 <!-- Left Column -->
@@ -102,7 +102,7 @@
                         </div>
                         <div class="card-body">
                             <p>You have 3 events scheduled this week:</p>
-                            
+
                             <div class="event-item">
                                 <div class="event-date">
                                     <div class="event-day">Tomorrow</div>
@@ -116,15 +116,15 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                       
+
+
                         </div>
                     </section>
-                    
+
                     <!-- Recent Member Activity -->
-                   
+
                 </div>
-                
+
                 <!-- Right Column -->
                 <div class="column-right">
                     <!-- Reminders -->
@@ -135,9 +135,9 @@
                         </div>
                         <div class="card-body">
                             <p>Items requiring your attention</p>
-                            
-                        
-                            
+
+
+
                             <div class="reminder-item priority-low">
                                 <div class="reminder-icon">
                                     <i class="fas fa-blog"></i>
