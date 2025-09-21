@@ -156,8 +156,8 @@ public function upload(Request $request)
         $image->move(public_path('imagemember'), $photoName);
     }
 
-$org = auth()->user();
-$currentMembers = User::where('organization_name', $org->organization_name)->count();
+$org =Auth::user() ;
+$currentMembers = User::where('organization_name', $org->organization_name)->where('role', 'member')->count();
  if ($currentMembers >= $org->plan->max_members) {
     return back()->with('error', 'You reached your member limit. Upgrade your plan!');
 }

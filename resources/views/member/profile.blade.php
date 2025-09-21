@@ -14,24 +14,26 @@
       color: #333;
     }
 
-    /* Sidebar */
-    .sidebar {
+    /* Sidebar */.sidebar {
       width: 240px;
       background: #fff;
       border-right: 1px solid #ddd;
-      padding: 20px 0;
+      padding: 20px;
     }
-    .sidebar h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 18px;
+    .sidebar h3 { margin-bottom: 20px; font-size: 18px; }
+    .sidebar ul { list-style: none; }
+    .sidebar li { margin: 10px 0; }
+    .sidebar a {
+      display: block;
+      padding: 10px;
+      border-radius: 6px;
+      color: #333;
+      transition: 0.2s;
+    }
+    .sidebar a.active, .sidebar a:hover {
+      background: #eef3ff;
+      color: #2d64ff;
       font-weight: bold;
-    }
-    .sidebar ul {list-style: none;}
-    .sidebar ul li {
-      padding: 12px 20px;
-      cursor: pointer;
-      transition: background 0.3s;
     }
     .sidebar ul li:hover, .sidebar ul li.active {
       background: #f0f4ff;
@@ -139,28 +141,7 @@
     }
 
     /* Bottom Navigation (Mobile/Tablet) */
-    .bottom-nav {
-      display: none;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: #fff;
-      border-top: 1px solid #ddd;
-      justify-content: space-around;
-      padding: 10px 0;
-      box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
-    }
-    .bottom-nav div {
-      text-align: center;
-      font-size: 14px;
-      cursor: pointer;
-      flex: 1;
-    }
-    .bottom-nav div.active {
-      color: #2563eb;
-      font-weight: bold;
-    }
+
 
     /* Responsive */
     @media (max-width: 900px) {
@@ -173,20 +154,53 @@
       .sidebar { display: none; }
       .bottom-nav { display: flex; }
     }
+
+      /* Responsive */
+@media(max-width: 768px) {
+  .container { flex-direction: column; }
+
+  /* Sidebar turns into bottom nav */
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-top: 1px solid #ddd;
+    border-bottom: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    z-index: 1000;
+  }
+
+  .sidebar h3 { display: none; }
+  .sidebar ul {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+  }
+  .sidebar li { margin: 0; }
+  .sidebar a {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 0;
+  }
+
+  /* Push content above bottom nav */
+  .content {
+    padding-bottom: 70px;
+  }
+
+  .rsvp { flex-direction: column; align-items: flex-start; }
+  .rsvp-buttons { margin-top: 8px; }
+}
   </style>
 </head>
 <body>
   <!-- Sidebar -->
-  <div class="sidebar">
-    <h2>Member Dashboard</h2>
-    <ul>
-      <li><a href="{{url('/home')}}">📊 Overview</a></li>
-       <li class="active"><a href="{{url('profile')}}"> Profile</a></li>
-      <li><a href="{{url('event1')}}">📅 Events</a></li>
-      <li><a href="#">📰 Blog</a></li>
-      <li><a href="#">💳 Payments</a></li>
-    </ul>
-  </div>
+   @include('member.sidebar')
 
   <!-- Main -->
   <div class="main">
@@ -270,14 +284,7 @@
   </div>
 
   <!-- Bottom Navigation (Mobile/Tablet) -->
-  <div class="bottom-nav">
-    <div>📊<br>Overview</div>
-    <div class="active">👤<br>Profile</div>
-    <div>📅<br>Events</div>
-    <div>📰<br>Blog</div>
-    <div>💳<br>Payments</div>
-  </div>
-
+ @include('member.sidebar')
   <script>
     // Bottom nav active toggle
     document.querySelectorAll('.bottom-nav div').forEach(item => {

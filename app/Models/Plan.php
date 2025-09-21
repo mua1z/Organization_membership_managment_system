@@ -15,4 +15,8 @@ class Plan extends Model
         'max_members',
         'duration_days',
     ];
+     public function users()
+    {
+        return $this->hasMany(User::class);
+    }
 }

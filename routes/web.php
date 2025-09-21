@@ -108,7 +108,7 @@ Route::get('/deleteblog/{id}', [organAdminController::class, 'deleteblog']);
 Route::post('/uploadpayment', [organAdminController::class, 'uploadpayment']);
 
 
-Route::get('/sidebar nav', [MemberController::class, 'sidebar1']);
+Route::get('/sidebar', [MemberController::class, 'sidebar1']);
 
 Route::get('/event1', [MemberController::class, 'event12']);
 

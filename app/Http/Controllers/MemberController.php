@@ -19,15 +19,9 @@ class MemberController extends Controller
 
      public function sidebar1()
     {
-        if(Auth::id()){
-            $useriD = Auth::user()->id;
-            $users = User::where('id', $useriD)->get();
-            return view('member.sidebar nav', compact('users'));
-        }else{
 
-            return redirect()->back();
-         }
-}
+            return view('member.sidebar');
+    }
 
 
 
