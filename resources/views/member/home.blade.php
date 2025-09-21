@@ -170,8 +170,8 @@
     <h2>Member Dashboard</h2>
     <ul>
         <li class="active"><a href="{{url('/home')}}">📊 Overview</a></li>
-      <li><a href="{{url('/profile')}}">👤 Profile</a></li>
-      <li><a href="{{url('/event')}}">📅 Events</a></li>
+      <li><a href="{{url('profile')}}">👤 Profile</a></li>
+      <li><a href="{{url('event1')}}">📅 Events</a></li>
       <li><a href="blog.html">📰 Blog</a></li>
       <li><a href="#">💳 Payments</a></li>
     </ul>
@@ -185,7 +185,7 @@
 
                     </x-app-layout>
     <div class="header">
-      <h1>Welcome back, John!</h1>
+      <h1>Welcome back, Harife!</h1>
       <p>Here’s your membership overview for today</p>
     </div>
 
@@ -193,17 +193,17 @@
       <div class="card">
         <h3>Membership Status</h3>
         <p class="status-active">Active</p>
-        <small>Premium Member <br> Expires: Dec 31, 2024</small>
+        <small>Premium Member <br> Expires: Oct 31, 2025</small>
       </div>
       <div class="card">
         <h3>Upcoming Events</h3>
         <p>5</p>
-        <small>Next: Board Meeting – Feb 15, 10:00 AM</small>
+        <small>Next: Board Meeting – Sep 15, 10:00 AM</small>
       </div>
       <div class="card">
         <h3>Outstanding Dues</h3>
-        <p style="color:orange;">$0.00</p>
-        <small>All payments up to date <br> Next due: Jan 2025</small>
+        <p style="color:orange;">ETB 0.00</p>
+        <small>All payments up to date <br> Next due: Oct 2025</small>
       </div>
     </div>
 
@@ -211,11 +211,11 @@
       <div class="section-box">
         <h3>Upcoming Events <span class="btn">View All</span></h3>
         <div class="list-item">
-          <span>Board Meeting (Feb 15, 10AM)</span>
+          <span>Board Meeting (Sep 15, 10AM)</span>
           <span class="btn">RSVP</span>
         </div>
         <div class="list-item">
-          <span>Community Outreach (Feb 18, 2PM)</span>
+          <span>Community Outreach (Sep 18, 2PM)</span>
           <span class="btn">RSVP</span>
         </div>
       </div>
@@ -224,11 +224,11 @@
         <h3>Recent Payments <span class="btn">View All</span></h3>
         <div class="list-item">
           <span>Annual Membership Fee (Jan 15)</span>
-          <span style="color:green;">$150.00 Paid</span>
+          <span style="color:green;"> ETB 150.00 Paid</span>
         </div>
         <div class="list-item">
           <span>Event Registration (Jan 10)</span>
-          <span style="color:green;">$25.00 Paid</span>
+          <span style="color:green;">ETB 25.00 Paid</span>
         </div>
       </div>
     </div>

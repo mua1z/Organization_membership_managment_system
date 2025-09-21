@@ -24,10 +24,10 @@
                     <li><a href="{{url('members')}}"><i class="fas fa-users"></i> Members</a></li>
                     <li><a href="{{url('payments')}}"><i class="fas fa-credit-card"></i> Payments</a></li>
                     <li><a href="#"><i class="fas fa-cog"></i> System Config</a></li>
-             
+
                 </ul>
             </nav>
-           
+
         </aside>
 
         <!-- Main Content -->
@@ -61,7 +61,7 @@
 
                 <!-- Stats Cards -->
                 <section class="stats-section">
-                  
+
                     <div class="stats-card">
                         <div class="stats-icon">
                             <i class="fas fa-building"></i>
@@ -97,7 +97,7 @@
                             <p class="stats-change positive"> </p>
                         </div>
                     </div>
-                    
+
 
                     <div class="stats-card">
                         <div class="stats-icon">
@@ -105,7 +105,7 @@
                         </div>
                         <div class="stats-info">
                             <h4>Monthly Revenue</h4>
-                            <p class="stats-number">${{$payments}}</p>
+                            <p class="stats-number">ETB{{$payments}}</p>
                             <p class="stats-change positive">+11.6% from last month</p>
                         </div>
                     </div>

@@ -209,8 +209,8 @@
       <h3>Member Dashboard</h3>
       <ul>
           <li class="active"><a href="{{url('/home')}}">📊 Overview</a></li>
-      <li><a href="{{url('/profile')}}">👤 Profile</a></li>
-      <li><a href="{{url('/event')}}">📅 Events</a></li>
+      <li><a href="{{url('profile')}}">👤 Profile</a></li>
+      <li><a href="{{url('event1')}}">📅 Events</a></li>
       <li><a href="blog.html">📰 Blog</a></li>
       <li><a href="#">💳 Payments</a></li>
       </ul>
@@ -251,7 +251,7 @@
             <h3>Board Meeting</h3>
             <span class="tag">Meeting</span>
           </div>
-          <p>📅 2024-02-15 | 🕙 10:00 AM - 12:00 PM</p>
+          <p>📅 2025-06-15 | 🕙 10:00 AM - 12:00 PM</p>
           <p>📍 Conference Room A, Main Office</p>
           <p>👥 12/15 attendees</p>
           <p>Monthly board meeting to discuss updates and planning.</p>
@@ -268,7 +268,7 @@
               <button class="no">No</button>
             </div>
           </div>
-          <a href="#" class="ticket-btn">🎟 Download Ticket</a>
+          /*<a href="#" class="ticket-btn">🎟 Download Ticket</a>*/
         </div>
 
         <!-- Volunteer Event -->
@@ -294,7 +294,7 @@
               <button class="no">No</button>
             </div>
           </div>
-          <a href="#" class="ticket-btn">🎟 Download Ticket</a>
+        /*  <a href="#" class="ticket-btn">🎟 Download Ticket</a>*/
         </div>
 
         <!-- Past Event -->

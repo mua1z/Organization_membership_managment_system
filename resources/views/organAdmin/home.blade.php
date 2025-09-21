@@ -79,7 +79,7 @@
                 <div class="stat-card">
                     <div class="stat-content">
                         <h3> Total Paid Payments</h3>
-                        <div class="stat-value">${{$payments}}</div>
+                        <div class="stat-value">ETB {{$payments}}</div>
                         <div class="stat-change negative">
                          Total paied this week
                         </div>

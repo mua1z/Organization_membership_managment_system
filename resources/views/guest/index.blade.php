@@ -187,14 +187,14 @@
                 <div class="feature-icon">
                     <i class="fas fa-users"></i>
                 </div>
-                <h3 class="counter" data-target="15000">1000+</h3>
+                <h3 class="counter" data-target="150">1000+</h3>
                 <p>Organizations</p>
             </div>
             <div class="stat-item">
                 <div class="feature-icon">
                     <i class="fas fa-calendar-alt"></i>
                 </div>
-                <h3 class="counter" data-target="300000">1009+</h3>
+                <h3 class="counter" data-target="3000">1009+</h3>
                 <p>Events Managed</p>
             </div>
             <div class="stat-item">
@@ -315,10 +315,10 @@
             <div class="pricing-cards">
                 <div class="pricing-card">
                     <h3>Starter</h3>
-                    <div class="price">$0<span>/month</span></div>
+                    <div class="price">0 ETB<span>/month</span></div>
                     <p>Perfect for small organizations getting started</p>
                     <ul>
-                        <li>Up to 50 members</li>
+                        <li>Up to 5 members</li>
                         <li>Basic member management</li>
                         <li>5 events per month</li>
                         <li>Email notifications</li>
@@ -330,7 +330,7 @@
                 <div class="pricing-card featured">
                     <div class="popular-badge">Most Popular</div>
                     <h3>Professional</h3>
-                    <div class="price">$29<span>/month</span></div>
+                    <div class="price">25 ETB<span>/month</span></div>
                     <p>Ideal for growing organizations</p>
                     <ul>
                         <li>Up to 500 members</li>
@@ -345,13 +345,13 @@
 
                 <div class="pricing-card">
                     <h3>Enterprise</h3>
-                    <div class="price">$99<span>/month</span></div>
+                    <div class="price">99 ETB<span>/month</span></div>
                     <p>For large organizations with complex needs</p>
                     <ul>
                         <li>Unlimited members</li>
                         <li>Full customization</li>
                         <li>Advanced reporting</li>
-                        <li>API access</li>
+
                         <li>Multiple admin accounts</li>
                         <li>24/7 premium support</li>
                         <li>Custom integrations</li>
@@ -498,11 +498,7 @@
                 <div class="footer-links">
                     <h3>Resources</h3>
                     <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Guides & Tutorials</a></li>
-                        <li><a href="#">API Documentation</a></li>
-                        <li><a href="#">Community Forum</a></li>
-                        <li><a href="#">System Status</a></li>
+
                     </ul>
                 </div>
 

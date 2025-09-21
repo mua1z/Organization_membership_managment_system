@@ -118,7 +118,7 @@
                 <form class="contact-form">
                     <div class="form-group">
                         <label for="full-name">Full Name</label>
-                        <input type="text" id="full-name" placeholder="John Doe" required>
+                        <input type="text" id="full-name" placeholder="Muaz Amin" required>
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
@@ -126,7 +126,7 @@
                     </div>
                     <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input type="email" id="email" placeholder="john@example.com" required>
+                        <input type="email" id="email" placeholder="muaz@example.com" required>
                     </div>
                     <div class="form-group">
                         <label for="company">Company Name</label>

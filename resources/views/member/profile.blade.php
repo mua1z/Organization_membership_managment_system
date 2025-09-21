@@ -181,8 +181,8 @@
     <h2>Member Dashboard</h2>
     <ul>
       <li><a href="{{url('/home')}}">📊 Overview</a></li>
-       <li class="active"><a href="{{url('/profile')}}"> Profile</a></li>
-      <li><a href="{{url('/event')}}">📅 Events</a></li>
+       <li class="active"><a href="{{url('profile')}}"> Profile</a></li>
+      <li><a href="{{url('event1')}}">📅 Events</a></li>
       <li><a href="#">📰 Blog</a></li>
       <li><a href="#">💳 Payments</a></li>
     </ul>
@@ -201,7 +201,7 @@
     </div>
 
     <div class="btns">
-      <button class="btn btn-download">⬇ Download Card</button>
+      <button class="btn btn-download"></button>
       <button class="btn btn-edit">✎ Edit Profile</button>
     </div>
 
@@ -211,10 +211,10 @@
         <img src="https://via.placeholder.com/120" alt="Profile Picture">
         <label class="upload-btn">📷 Change Photo</label>
         <p><strong>Membership Type:</strong> Premium Member</p>
-        <p><strong>Member Since:</strong> January 2020</p>
+        <p><strong>Member Since:</strong> Aug 2025</p>
         <p><strong>Status:</strong> <span class="status">Active</span></p>
-        <p><strong>Renewal Date:</strong> Dec 31, 2024</p>
-        <p><strong>Internal Role:</strong> Treasurer</p>
+        <p><strong>Renewal Date:</strong> Oct 31, 2025</p>
+        <p><strong> Role:</strong> Member of Organization</p>
       </div>
 
       <!-- Right: Personal Info -->
@@ -222,48 +222,48 @@
         <h3>Personal Information</h3>
         <div class="form-group">
           <label>First Name</label>
-          <input type="text" value="John">
+          <input type="text" value="Harife">
         </div>
         <div class="form-group">
           <label>Last Name</label>
-          <input type="text" value="Smith">
+          <input type="text" value="E">
         </div>
         <div class="form-group">
           <label>Email Address</label>
-          <input type="email" value="john.smith@email.com">
+          <input type="email" value="harife@email.com">
         </div>
         <div class="form-group">
           <label>Phone Number</label>
-          <input type="text" value="+1 (555) 123-4567">
+          <input type="text" value="+251 911 223344">
         </div>
         <div class="form-group">
           <label>Address</label>
-          <input type="text" value="123 Main Street">
+          <input type="text" value="Dire Dawa">
         </div>
         <div class="form-group">
           <label>City</label>
-          <input type="text" value="Springfield">
+          <input type="text" value="Dire Dawa">
         </div>
         <div class="form-group">
           <label>State</label>
-          <input type="text" value="IL">
+          <input type="text" value="Dire Dawa">
         </div>
         <div class="form-group">
           <label>ZIP Code</label>
-          <input type="text" value="62701">
+          <input type="text" value="">
         </div>
         <div class="form-group">
           <label>Date of Birth</label>
-          <input type="text" value="03/15/1985">
+          <input type="text" value="03/15/2003">
         </div>
         <h3>Emergency Contact</h3>
         <div class="form-group">
           <label>Contact Name</label>
-          <input type="text" value="Jane Smith">
+          <input type="text" value="Harife E">
         </div>
         <div class="form-group">
           <label>Contact Phone</label>
-          <input type="text" value="+1 (555) 987-6543">
+          <input type="text" value="+251 911 223344">
         </div>
       </div>
     </div>

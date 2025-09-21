@@ -62,14 +62,14 @@ Phone
                                             <x-label for="name" value="{{ __('Name') }}" class="block w-full mb-1 text-sm font-medium text-gray-700" />
                                             <x-input id="name" class="block w-full px-4 py-3 transition duration-200 border border-gray-300 shadow-sm rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500"
                                                      type="text" name="name" :value="old('name')" required autofocus autocomplete="name"
-                                                     placeholder="John Doe" />
+                                                     placeholder="Muaz Amin" />
                                         </div>
 
                                         <div class="w-full">
                                             <x-label for="email" value="{{ __('Email') }}" class="block w-full mb-1 text-sm font-medium text-gray-700" />
                                             <x-input id="email" class="block w-full px-4 py-3 transition duration-200 border border-gray-300 shadow-sm rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500"
                                                      type="email" name="email" :value="old('email')" required autocomplete="username"
-                                                     placeholder="john@example.com" />
+                                                     placeholder="muaz@example.com" />
                                         </div>
                                     </div>
 
@@ -78,14 +78,14 @@ Phone
                                             <x-label for="phone" value="{{ __('Phone') }}" class="block w-full mb-1 text-sm font-medium text-gray-700" />
                                             <x-input id="phone" class="block w-full px-4 py-3 transition duration-200 border border-gray-300 shadow-sm rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500"
                                                      type="text" name="phone" :value="old('phone')" required autofocus autocomplete="phone"
-                                                     placeholder="+1 (555) 123-4567" />
+                                                     placeholder="+251939696877" />
                                         </div>
 
                                         <div class="w-full">
                                             <x-label for="organization_name" value="{{ __('Organization Name') }}" class="block w-full mb-1 text-sm font-medium text-gray-700" />
                                             <x-input id="organization_name" class="block w-full px-4 py-3 transition duration-200 border border-gray-300 shadow-sm rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500"
                                                      type="text" name="organization_name" :value="old('organization_name')" required autofocus autocomplete="organization_name"
-                                                     placeholder="Acme Inc." />
+                                                     placeholder="organ_name" />
                                         </div>
                                     </div>
 
@@ -122,7 +122,7 @@ Phone
                                         <x-label for="member" value="{{ __('Members Numbers') }}" class="block w-full mb-1 text-sm font-medium text-gray-700" />
                                         <x-input id="member" class="block w-full px-4 py-3 transition duration-200 border border-gray-300 shadow-sm rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500"
                                                  type="number" name="member" :value="old('member')" required autofocus autocomplete="member"
-                                                 placeholder="10" />
+                                                 placeholder="1" />
                                     </div>
 
 

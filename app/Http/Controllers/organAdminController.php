@@ -25,7 +25,7 @@ class organAdminController extends Controller
             $useriD = Auth::user()->id;
             $member =User::where('organization_name', $userID)->where('role', 'member')->get();
             $users = User::where('id', $useriD)->get();
-            return view('organAdmin.member', compact('member', 'users'));
+            return view('organAdmin.member1', compact('member', 'users'));
         }else{
 
             return redirect()->back();

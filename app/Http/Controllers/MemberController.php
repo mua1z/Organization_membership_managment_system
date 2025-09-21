@@ -31,7 +31,7 @@ class MemberController extends Controller
 
 
 
-    public function event1()
+    public function event12()
     {
 
 
@@ -44,7 +44,7 @@ class MemberController extends Controller
         //$blogs = Blog::where('organ_name', $orgName)->count();
         // $events = Event::all();
 
-        return view('member.event', compact('events','users'));
+        return view('member.event1', compact('events','users'));
          }else{
 
             return redirect()->back();

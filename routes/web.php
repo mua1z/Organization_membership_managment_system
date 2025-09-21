@@ -76,7 +76,7 @@ Route::get('/deletemembers/{id}', [AdminController::class, 'deletemembers']);
 
 
 
-Route::get('/member', [organAdminController::class, 'member']);
+Route::get('/member1', [organAdminController::class, 'member']);
 Route::get('/event', [organAdminController::class, 'event']);
 Route::get('/blog', [organAdminController::class, 'blog']);
 Route::get('/payment', [organAdminController::class, 'payment']);
@@ -110,7 +110,7 @@ Route::post('/uploadpayment', [organAdminController::class, 'uploadpayment']);
 
 Route::get('/sidebar nav', [MemberController::class, 'sidebar1']);
 
-Route::get('/event', [MemberController::class, 'event1']);
+Route::get('/event1', [MemberController::class, 'event12']);
 
 Route::get('/profile', [MemberController::class, 'profile']);
 
