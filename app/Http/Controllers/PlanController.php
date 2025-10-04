@@ -15,7 +15,7 @@ public function showUpgradePlan()
         $user = Auth::user();
         $plans = Plan::where('type', $user->role)->get();
 
-        return view('plans.upgrade', compact('plans', 'user'));
+        return view('organAdmin.plans.upgrade', compact('plans', 'user'));
     }
 
     public function UpgradePlan(Request $request)
@@ -41,8 +41,8 @@ $user = Auth::user();
         }
 
             return back()->with('success', 'Plan upgraded successfully!');
-/*If the plan is paid, redirect to payment page // Pass the plan ID to payment page
-return redirect()->url('organAdmin.payment', ['plan_id' => $plan->id]);*/
+
+return redirect()->url('organAdmin.payment', ['plan_id' => $plan->id]);
 }
 
 }
