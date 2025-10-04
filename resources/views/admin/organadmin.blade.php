@@ -27,7 +27,7 @@
                     <li><a href="#"><i class="fas fa-cog"></i> System Config</a></li>
                 </ul>
             </nav>
-          
+
         </aside>
 
         <!-- Main Content -->
@@ -97,7 +97,7 @@
                             </select>
                         </div>
                     </div>
-                    
+
                     <div class="table-responsive">
                         <table class="admins-table">
                             <thead>
@@ -117,16 +117,16 @@
                                     <td>
                                         <div class="user-info">
                                             <div class="user-avatar">
-                                                <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="John Smith">
+                                                <img src="" alt="{{$orgs->name}}">
                                             </div>
                                             <div class="user-details">
                                                 <h4>{{$orgs->name}}</h4>
-                                              
+
                                             </div>
                                         </div>
                                     </td>
                                     <td>{{$orgs->email}}</td>
-                                    <td>{{$orgs->organ_name}}</td>
+                                    <td>{{$orgs->organization_name}}</td>
                                     <td><span class="badge badge-primary">{{$orgs->role}}</span></td>
                                     <td><span class="badge badge-active">{{$orgs->status}}</span></td>
                                     <td>
@@ -188,7 +188,7 @@
                             <label for="admin-first-name">Full Name</label>
                             <input type="text" id="admin-first-name" name="name" required>
                         </div>
-                      
+
                     </div>
                     <div class="form-group">
                         <label for="admin-email">Email</label>
@@ -197,7 +197,7 @@
                     <div class="form-group">
                         <label for="admin-organization">Organization Name</label>
                         <input type="text" id="admin-oran" name="organ_name" required>
-                      
+
                     </div>
                     <div class="form-group">
                         <label for="admin-role">Role</label>
@@ -214,7 +214,7 @@
                             <option value="inactive">Inactive</option>
                         </select>
                     </div>
-         
+
             <div class="modal-footer">
                 <button class="btn btn-secondary modal-cancel">Cancel</button>
                 <button class="btn btn-primary modal-submit">Create Admin</button>
@@ -245,7 +245,7 @@
                 <button class="btn btn-primary modal-submit">Send Reset Link</button>
             </div>
 
-           
+
         </div>
     </div>
 

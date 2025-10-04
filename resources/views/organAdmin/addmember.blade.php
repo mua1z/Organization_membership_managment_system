@@ -45,6 +45,9 @@
                     <input type="text" placeholder="Search members..." id="memberSearch">
                 </div>
 
+                {{-- Session Alert / Modal --}}
+
+
                 <div class="action-buttons">
                     <button class="btn btn-outline" id="exportBtn">
                         <i class="fas fa-file-export"></i> Export
@@ -69,14 +72,84 @@
             </div>
 
             <div class="modal-body" style="padding: 20px; font-family: Arial, sans-serif;">
-@if(session()->has('message'))
-    <div class="alert alert-success" style="background-color: blue; color: white; padding: 15px; margin-bottom: 20px; border: 1px solid #c3e6cb; border-radius: 4px; position: relative;">
-        <a href="{{url('member')}}" style="text-decoration: none;">
-            <button type="button" class="close" data-dismiss="alert" style="position: absolute; top: 5px; right: 10px; background: transparent; border: none; font-size: 20px; color: white; cursor: pointer;">cancel</button>
-        </a>
-        {{session()->get('message')}}
+
+{{-- Session Alert / Modal --}}
+{{-- Session Alert / Modal --}}
+@if(session('message'))
+    <div class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50" id="sessionModal">
+        <div class="max-w-md p-6 bg-white shadow-lg rounded-xl w-80 animate-fadeIn">
+            {{-- Header --}}
+            <div class="flex items-center mb-4">
+                <div class="rounded-full h-12 w-12 flex items-center justify-center mr-3
+                            {{ session('alert_type') === 'error' ? 'bg-red-600 text-white' : 'bg-green-600 text-white' }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        @if(session('alert_type') === 'error')
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M6 18L18 6M6 6l12 12"/>
+                        @else
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M5 13l4 4L19 7"/>
+                        @endif
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold {{ session('alert_type') === 'error' ? 'text-red-600' : 'text-green-600' }}">
+                    {{ session('alert_type') === 'error' ? 'Upgrade Your plan!' : 'success' }}
+                </h3>
+            </div>
+
+            {{-- Message --}}
+            <p class="text-gray-700 mb-6 text-sm {{ session('alert_type') === 'error' ? 'text-red-600' : 'text-green-700' }}">
+                {{ session('message') }}
+            </p>
+
+            {{-- Button --}}
+            <div class="flex justify-end">
+                @if(session('alert_type') === 'error')
+                    <a href="{{ url('payment') }}"
+                       class="px-4 py-2 font-medium text-white transition-colors bg-red-600 rounded-lg hover:bg-red-700">
+                        Go to Payment
+                    </a>
+                @else
+                    <button onclick="document.getElementById('sessionModal').remove()"
+                            class="px-4 py-2 font-medium text-white transition-colors bg-green-600 rounded-lg hover:bg-green-700">
+                        OK
+                    </button>
+                @endif
+            </div>
+        </div>
     </div>
+
+    {{-- Fade-in animation and auto-close / redirect --}}
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.3s ease-out;
+        }
+    </style>
+
+    <script>
+        // Auto-close success modal after 5 seconds
+        setTimeout(() => {
+            const modal = document.getElementById('sessionModal');
+            if(modal && '{{ session('alert_type') }}' === 'success') modal.remove();
+        }, 5000);
+
+        // Auto-redirect error modal after 5 seconds
+        setTimeout(() => {
+            if('{{ session('alert_type') }}' === 'error') {
+                window.location.href = "{{ url('payment') }}";
+            }
+        }, 5000);
+    </script>
 @endif
+
+
+
+
 
 <form id="addMemberForm" action="{{ url('upload_member') }}" method="POST" enctype="multipart/form-data">
     @csrf
@@ -89,8 +162,8 @@
 
     <!-- Organization Name (manual) -->
     <div class="form-group">
-        <label for="organ_name">Organization Name</label>
-        <input type="text" id="organ_name" name="organ_name" class="form-control" required>
+        <label for="organization_name">Organization Name</label>
+        <input type="text" id="organization_name" name="organization_name" class="form-control" required>
     </div>
 
     <!-- Email -->

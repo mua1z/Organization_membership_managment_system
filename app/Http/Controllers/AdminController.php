@@ -19,7 +19,7 @@ class AdminController extends Controller
 
 
 
-            $organ = user::all();
+           $organ = User::with('plan')->where('role', 'organAdmin')->get();
             return view('admin.organ', compact('organ' ));
 
         }
@@ -28,8 +28,8 @@ class AdminController extends Controller
 
     public function orgAdmin()
     {
-
-        return view('admin.orgAdmin');
+$organ = User::with('plan')->where('role', 'organAdmin')->get();
+        return view('admin.orgAdmin', compact('organ' ));
     }
 
     public function orgadmin_upload(Request $request)
@@ -58,25 +58,25 @@ class AdminController extends Controller
 
     public function members()
     {
-        $member = member::all();
+        $member = User::where('role', 'member')->get();
         return view('admin.members' , compact('member'));
     }
 
     public function organadmin()
     {
-        $org = organadmin::all();
+        $org = User::where('role', 'organAdmin')->get();
         return view('admin.organadmin', compact('org'));
     }
 
     public function editorgan($id)
     {
-        $data= user::find($id);
+        $data= User::find($id);
         return view('admin.editorgan', compact('data') );
     }
 
     public function updateorgan(Request $request,$id)
     {
-        $org =user::find($id);
+        $org =User::find($id);
         $image=$request->file;
         $imagename=time().'.'.$image->getClientOriginalExtension();
           $request->file->move('imageorgan',$imagename);
@@ -84,7 +84,7 @@ class AdminController extends Controller
 
         $org->organization_name=$request->organization_name;
         $org->name=$request->name;
-        $org->plan=$request->plan;
+       // $org->plan=$request->plan;
         $org->member=$request->member;
         $org->email=$request->email;
         $org->password=$request->password;
@@ -101,7 +101,7 @@ class AdminController extends Controller
 
     public function deleteorgan($id)
     {
-        $data= user::find($id);
+        $data= User::find($id);
        $data->delete();
 
        return redirect()->back()->with('message', 'Organization deleted successfully!');
@@ -110,23 +110,23 @@ class AdminController extends Controller
 
     public function editmembers($id)
     {
-        $data= member::find($id);
+        $data= User::find($id);
         return view('admin.editmembers', compact('data') );
     }
 
     public function updatemember(Request $request, $id)
     {
-        $member= member::find($id);
+        $member= User::find($id);
         $image=$request->file;
         $imagename=time().'.'.$image->getClientOriginalExtension();
           $request->file->move('imagemember',$imagename);
-          $member->photo=$imagename;
+          $member->profile_photo_path=$imagename;
 
         $member->name=$request->name;
 
        $member->email=$request->email;
-       $member->organ_name=$request->organ_name;
-       $member->status=$request->status;
+       $member->organization_name=$request->organization_name;
+       //$member->status=$request->status;
        $member->join_date=$request->join_date;
        $member->password=$request->password;
 
@@ -140,7 +140,7 @@ class AdminController extends Controller
 
     public function deletemembers($id)
     {
-        $data= member::find($id);
+        $data= User::find($id);
        $data->delete();
 
        return redirect()->back()->with('message', 'Member deleted successfully!');
@@ -161,7 +161,7 @@ class AdminController extends Controller
 
         $org->organization_name=$request->organization_name;
         $org->name=$request->name;
-        $org->plan=$request->plan;
+      //  $org->plan=$request->plan;
         $org->member=$request->member;
         $org->email=$request->email;
         $org->password=$request->password;

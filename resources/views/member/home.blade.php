@@ -202,7 +202,7 @@
 
                     </x-app-layout>
     <div class="header">
-      <h1>Welcome back, Harife!</h1>
+      <h1>Welcome back, {{ $user->name }}!</h1>
       <p>Here’s your membership overview for today</p>
     </div>
 
@@ -210,7 +210,7 @@
       <div class="card">
         <h3>Membership Status</h3>
         <p class="status-active">Active</p>
-        <small>Premium Member <br> Expires: Oct 31, 2025</small>
+        <small>{{ $plan->name }} Member <br>Expired: {{ $expiry }}</small>
       </div>
       <div class="card">
         <h3>Upcoming Events</h3>

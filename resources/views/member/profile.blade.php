@@ -284,7 +284,7 @@
   </div>
 
   <!-- Bottom Navigation (Mobile/Tablet) -->
- @include('member.sidebar')
+
   <script>
     // Bottom nav active toggle
     document.querySelectorAll('.bottom-nav div').forEach(item => {

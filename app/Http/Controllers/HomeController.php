@@ -59,8 +59,8 @@ class HomeController extends Controller
 
         } elseif (Auth::user()->role == 'SuperAdmin') {
             // Admin logic stays unchanged
-            $organ = user::where('role', 'organAdmin')->count();
-           $members = User::count();
+            $organ = User::where('role', 'organAdmin')->count();
+           $members = User::where('role', 'member')->count();
             $payments = Payment::sum('amount');
             return view('admin.home', compact('organ','members', 'payments'));
 
@@ -69,18 +69,20 @@ class HomeController extends Controller
 
     // ✅ Member role handling
 } elseif (Auth::user()->role == 'member') {
-    if(Auth::id()){
+ if (Auth::id()) {
                 $userid = Auth::user()->id;
                $users = User::where('id', $userid)->get();
          $orgName = Auth::user()->organization_name;
+        $user = Auth::user();
 
-        $events = Event::where('organ_name', $orgName)->count();
+
+$plan = $user->plan; // relation in User model
+$expiry = $user->plan_expiry;
+        $events = Event::where('organ_name', $orgName)->where('status', 'upcoming')->count();
         $blogs = Blog::where('organ_name', $orgName)->count();
         $payments = Payment::where('organ_name', $orgName)->sum('amount');
-
-        return view('member.home', compact('users','events', 'blogs', 'payments'));}
-
-    } else {
+  return view('member.home', compact('user','events', 'plan', 'expiry'));}
+       } else {
         return redirect()->back();
     }
 }

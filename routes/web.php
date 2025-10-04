@@ -80,8 +80,8 @@ Route::get('/member1', [organAdminController::class, 'member']);
 Route::get('/event', [organAdminController::class, 'event']);
 Route::get('/blog', [organAdminController::class, 'blog']);
 Route::get('/payment', [organAdminController::class, 'payment']);
- Route::get('organAdmin/plans/upgrade', [PlanController::class, 'ShowUpgradePlan'])->name('organAdmin.plans.upgrade');
- Route::post('organAdmin/plans/upgrade', [PlanController::class, 'UpgradePlan'])->name('organAdmin.plans.upgrade');
+ Route::get('/upgrade', [PlanController::class, 'ShowUpgradePlan']);
+ Route::post('/upgrade', [PlanController::class, 'UpgradePlan']) ;
 
 Route::get('/sidebar nav', [organAdminController::class, 'sidebar']);
 Route::get('/edit_profile/{id}', [organAdminController::class, 'editprofile']);

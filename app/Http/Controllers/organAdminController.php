@@ -102,7 +102,7 @@ class organAdminController extends Controller
         if(Auth::id()){
             $useriD = Auth::user()->id;
             $users = User::where('id', $useriD)->get();
-            $data= member::find($id);
+            $data= User::find($id);
             return view('organAdmin.edit',compact('data', 'users') );
         }else{
 
@@ -114,22 +114,25 @@ class organAdminController extends Controller
 
     public function deletemember($id)
     {
-        $data= member::find($id);
+        $data= User::find($id);
        $data->delete();
 
-       return redirect()->back()->with('message', 'Member deleted successfully!');
+       return back()->with([
+        'message' => 'Member deleted successfully!',
+        'alert_type' => 'error', // only success here
+    ]);
 
     }
 
 
     public function editmember(Request $request, $id)
     {
-        $member= member::find($id);
+        $member= User::find($id);
 
         $image=$request->file;
         $imagename=time().'.'.$image->getClientOriginalExtension();
           $request->file->move('imagemember',$imagename);
-          $member->photo=$imagename;
+          $member->profile_photo_path=$imagename;
 
         $member->name=$request->name;
 
@@ -159,7 +162,11 @@ public function upload(Request $request)
 $org =Auth::user() ;
 $currentMembers = User::where('organization_name', $org->organization_name)->where('role', 'member')->count();
  if ($currentMembers >= $org->plan->max_members) {
-    return back()->with('error', 'You reached your member limit. Upgrade your plan!');
+
+    return back()->with([
+    'message' => 'You reached your member limit. Upgrade your plan!',
+    'alert_type' => 'error'
+]);
 }
 
 
@@ -199,10 +206,10 @@ $currentMembers = User::where('organization_name', $org->organization_name)->whe
         // other validations...
     ]);
 
-    $member->save();
+    //$member->save();
 
-    return redirect()->back()->with('message', 'Member added successfully!');
-        //return redirect()->back()->with('success', 'Member added successfully!');
+return redirect()->back()->with('message', 'Member added successfully!'
+        );
     }
 
 
@@ -258,8 +265,11 @@ $currentMembers = User::where('organization_name', $org->organization_name)->whe
         $event->organ_name=$request->organ_name;
 
         $event->save();
-        return redirect()->back()->with('message', 'Event added successfully!');
-        //return redirect()->back()->with('success', 'Event added successfully!');
+         return back()->with([
+        'message' => 'Event added successfully!',
+        'alert_type' => 'error', // only success here
+    ]);
+
     }
 
     public function editevent($id)
@@ -309,7 +319,11 @@ $currentMembers = User::where('organization_name', $org->organization_name)->whe
         $data= event::find($id);
        $data->delete();
 
-       return redirect()->back()->with('message', 'Event deleted successfully!');
+            return back()->with([
+        'message' => 'Event deleted successfully!',
+        'alert_type' => 'error', // only success here
+    ]);
+
 
     }
 
@@ -408,6 +422,7 @@ $currentMembers = User::where('organization_name', $org->organization_name)->whe
     public function payment()
     {
         if(Auth::id()){
+          //  $plan = Plan::findOrFail($plan_id);
             $userID = Auth::user()->organization_name;
             $payments = payment::where('organ_name', $userID)->get();
             $useriD = Auth::user()->id;
@@ -423,6 +438,9 @@ $currentMembers = User::where('organization_name', $org->organization_name)->whe
 
     public function uploadpayment(Request $request)
     {
+        $user = Auth::user();
+        $plan = Plan::findOrFail($request->plan_id);
+
        $payment = new payment;
         $payment->name=$request->name;
         $payment->organ_name=$request->organ_name;
@@ -431,11 +449,27 @@ $currentMembers = User::where('organization_name', $org->organization_name)->whe
       $payment->billing=$request->billing;
       $payment->payment_method=$request->payment_method;
 
+      $paymentSuccess = true;
+
+      if ($paymentSuccess) {
+         // Calculate expiry based on billing cycle
+         if ($plan->billing_cycle === 'monthly') {
+            $expiry = now()->addMonth(); }
+             elseif ($plan->billing_cycle === 'yearly') {
+                $expiry = now()->addYear(); }
+                else { $expiry = null;
+                     // lifetime
+                      }
+                      $user->update([ 'plan_id' => $plan->id, 'plan_expiry' => $expiry, ]);
 
    $payment->save();
+  return redirect()->url('plans.upgrade')->with('message', 'Plan upgraded successfully!');
+  // return redirect()->back()->with('message', 'Payment completed successfully!');
 
-   return redirect()->back()->with('message', 'Payment completed successfully!');
 
+        } else {
+            return redirect()->back()->with('error', 'Payment failed. Please try again.');
+        }
     }
 
 

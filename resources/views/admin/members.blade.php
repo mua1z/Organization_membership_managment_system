@@ -28,7 +28,7 @@
                     <li><a href="#"><i class="fas fa-cog"></i> System Config</a></li>
                 </ul>
             </nav>
-          
+
         </aside>
 
         <!-- Main Content -->
@@ -74,7 +74,7 @@
                             <label for="organization-filter">Organization:</label>
                             <select id="organization-filter">
                                 <option value="all">All Organizations</option>
-                             
+
                             </select>
                         </div>
                         <div class="filter-group">
@@ -97,7 +97,7 @@
                             </select>
                         </div>
                     </div>
-                    
+
                     <div class="modal-body" style="padding: 20px; font-family: Arial, sans-serif;">
 @if(session()->has('message'))
     <div class="alert alert-success" style="background-color: blue; color: white; padding: 15px; margin-bottom: 20px; border: 1px solid #c3e6cb; border-radius: 4px; position: relative;">
@@ -107,7 +107,7 @@
         {{session()->get('message')}}
     </div>
 @endif
-</div>  
+</div>
                    <div class="table-responsive">
                         <table class="members-table">
                             <thead>
@@ -133,7 +133,7 @@
                                     <td>
                                         <div class="user-info">
                                             <div class="user-avatar">
-                                                <img src="imagemember/{{$members->photo}}" alt="{{$members->name}}">
+                                                <img src="imagemember/{{$members->profile_photo_path}}" alt="{{$members->name}}">
                                             </div>
                                             <div class="user-details">
                                                 <h4>{{$members->name}}</h4>
@@ -142,14 +142,14 @@
                                         </div>
                                     </td>
                                     <td>{{$members->email}}</td>
-                                    <td>{{$members->organ_name}}</td>
+                                    <td>{{$members->organization_name}}</td>
                                     <td>{{$elapsed}}</td>
                                     <td><span class="badge badge-active">{{$members->status}}</span></td>
                                     <td>
                                         <div class="action-buttons">
                                            <a href="{{url('deletemembers', $members->id)}}">Delete<button class="btn-action delete-btn" title="delete">
                                                 <i class="fas fa-delete"></i>
-                                            </button></a> 
+                                            </button></a>
                                            <a href="{{url('editmembers', $members->id)}}"> <button class="btn-action edit-btn" title="Edit">
                                                 <i class="fas fa-edit"></i>
                                             </button></a>

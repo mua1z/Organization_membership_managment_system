@@ -28,7 +28,7 @@
                     <li><a href="#"><i class="fas fa-cog"></i> System Config</a></li>
                 </ul>
             </nav>
-           
+
         </aside>
 
         <!-- Main Content -->
@@ -77,10 +77,10 @@
         {{session()->get('message')}}
     </div>
 @endif
-</div>  
-        
+</div>
 
-  
+
+
 
 
       <form action="{{url('updatemember', $data->id)}}" method="POST" enctype="multipart/form-data"  class="update-member-form" style="max-width: 500px; margin: 20px auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px;">
@@ -89,7 +89,7 @@
   <div class="form-group">
   <label for="name">Full Name: </label>
   <input type="text" id="name" name="name" value="{{$data->name}}" required></div>
- 
+
   <div class="form-group">
   <label for="email">Email Address: </label>
   <input type="email" id="email" name="email"  value="{{$data->email}}" required></div>
@@ -118,11 +118,11 @@
 </div>
   <div class="form-group">
   <label for="organ_name">Organ_name: </label>
-  <input type="text" id="organ_name" name="organ_name"  value="{{$data->organ_name}}" required>
+  <input type="text" id="organ_name" name="organ_name"  value="{{$data->organization_name}}" required>
 </div>
   <div class="form-group">
   <label for="photo">Photo:</label>
-  <input type="file" id="file" name="file" value="{{$data->photo}}" >
+  <input type="file" id="file" name="file" value="{{$data->profile_photo_path}}" >
 </div>
 <div class="modal-footer">
 <button class="btn btn-secondary modal-cancel">Cancel</button>
@@ -132,18 +132,18 @@
 
 
                 <!-- Pagination -->
-             
+
             </div>
         </main>
     </div>
 
-   
 
-   
+
+
 
     <!-- Impersonate Modal -->
-    
-    
+
+
 
     <script src="/admin/js/members.js"></script>
 </body>

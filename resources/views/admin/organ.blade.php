@@ -26,7 +26,7 @@
                     <li><a href="#"><i class="fas fa-cog"></i> System Config</a></li>
                 </ul>
             </nav>
-           
+
         </aside>
 
         <!-- Main Content -->
@@ -68,7 +68,7 @@
         {{session()->get('message')}}
     </div>
 @endif
-</div>  
+</div>
                 <!-- Organizations Table -->
                 <section class="organizations-table-section">
                     <div class="table-responsive">
@@ -90,7 +90,7 @@
                                         <div class="org-info">
                                             <div class="org-avatar">
                                                 <img src="imageorgan/{{$users->profile_photo_path}}" alt="{{$users->organization_name}}" onerror="this.src='https://ui-avatars.com/api/?name=Global+Solutions&background=random'">
-                                               
+
                                             </div>
                                             <div class="org-details">
                                                 <h4>{{$users->organization_name}}</h4>
@@ -100,16 +100,16 @@
                                     </td>
                                     <td>{{$users->name}}</td>
                                     <td>{{$users->member}}</td>
-                                    <td><span class="badge badge-enterprise">{{$users->plan}}</span></td>
+                                    <td><span class="badge badge-enterprise">{{ $users->plan ? $users->plan->name : 'No Plan' }}</span></td>
                                     <td><span class="badge badge-active">{{$users->organization_type}}</span></td>
                                     <td>
                                         <div class="action-buttons">
                                             <a href="{{url('deleteorgan', $users->id)}}">delete<button class="btn-action delete-btn" title="Delete">
-                                               
+
                                             </button></a>
                                            <a href="{{url('editorgan', $users->id)}}"><button class="btn-action edit-btn" title="Edit">
                                                 <i class="fas fa-edit"></i>
-                                            </button></a> 
+                                            </button></a>
                                             <button class="btn-action deactivate-btn" title="Deactivate">
                                                 <i class="fas fa-ban"></i>
                                             </button>
@@ -117,7 +117,7 @@
                                     </td>
                                 </tr>
                                 @endforeach
-                               
+
                             </tbody>
                         </table>
                     </div>

@@ -71,16 +71,57 @@
             <!-- Member Table -->
             <div class="card">
 
-            <div class="modal-body" style="padding: 20px; font-family: Arial, sans-serif;">
-@if(session()->has('message'))
-    <div class="alert alert-success" style="background-color: blue; color: white; padding: 15px; margin-bottom: 20px; border: 1px solid #c3e6cb; border-radius: 4px; position: relative;">
-        <a href="{{url('member')}}" style="text-decoration: none;">
-            <button type="button" class="close" data-dismiss="alert" style="position: absolute; top: 5px; right: 10px; background: transparent; border: none; font-size: 20px; color: white; cursor: pointer;">cancel</button>
-        </a>
-        {{session()->get('message')}}
+  {{-- Success Modal --}}
+@if(session('message') && session('alert_type') === 'success')
+<div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50" id="sessionModal">
+    <div class="bg-white rounded-xl shadow-lg w-full max-w-md p-6 animate-fadeIn">
+        {{-- Header --}}
+        <div class="flex items-center mb-4">
+            <div class="rounded-full h-12 w-12 flex items-center justify-center mr-3 bg-green-600 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M5 13l4 4L19 7" />
+                </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-green-600">Success</h3>
+        </div>
+
+        {{-- Message --}}
+        <p class="text-gray-700 mb-6 text-green-700 text-sm">
+            {{ session('message') }}
+        </p>
+
+        {{-- OK Button --}}
+        <div class="flex justify-end">
+            <button onclick="document.getElementById('sessionModal').remove()"
+                    class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors font-medium">
+                OK
+            </button>
+        </div>
     </div>
-@endif
 </div>
+
+{{-- Animation --}}
+<style>
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn {
+    animation: fadeIn 0.3s ease-out;
+}
+</style>
+
+{{-- Auto close after 5s --}}
+<script>
+setTimeout(() => {
+    const modal = document.getElementById('sessionModal');
+    if(modal) modal.remove();
+}, 5000);
+</script>
+@endif
+
 
 
 

@@ -21,12 +21,12 @@
                     <div class="form-group">
                     <label class="form-group" for="member"></label>
                         <input type="number" id="member" placeholder="Enter your member e.g 1000" name="member" required>
-                    </div> 
+                    </div>
                     <div class="form-group">
                     <label  for="email"></label>
                         <input type="email" id="email" placeholder="Enter your email" name="email" required>
-                    </div> 
-                       
+                    </div>
+
                     <div class="form-group">
                         <label for="organization_type"></label>
                         <select id="organization_type" name="organization_type" required>
@@ -37,18 +37,18 @@
                             <option value="corporate">Corporate</option>
 
                         </select>
-                        </div> 
-                        
+                        </div>
+
                     <label for="password">password :</label>
                         <input type="password" id="password" placeholder="password" name="password" required><br>
-                        
-                        
+
+
   <label for="photo">Photo:</label>
   <input type="file" id="file" name="file" placeholder="Enter your photo"  >
-    
-            
-                
-             
+
+
+
+
             <div class="modal-footer">
                 <button class="btn btn-secondary modal-cancel">Cancel</button>
                 <button class="btn btn-primary modal-submit">Create Organization</button>
