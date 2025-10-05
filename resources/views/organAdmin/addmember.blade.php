@@ -141,7 +141,7 @@
         // Auto-redirect error modal after 5 seconds
         setTimeout(() => {
             if('{{ session('alert_type') }}' === 'error') {
-                window.location.href = "{{ url('payment') }}";
+                window.location.href = "{{ route('organAdmin.plans.upgrade') }}";
             }
         }, 5000);
     </script>

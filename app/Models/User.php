@@ -101,4 +101,10 @@ public function plan()
     return $this->belongsTo(Plan::class, 'plan_id');
 }
 
+public function payments()
+{
+    return $this->hasMany(Payment::class);
+}
+
+
 }

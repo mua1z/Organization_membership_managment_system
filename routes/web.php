@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\organAdminController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\PaymentController;
 
 
 
@@ -79,9 +80,9 @@ Route::get('/deletemembers/{id}', [AdminController::class, 'deletemembers']);
 Route::get('/member1', [organAdminController::class, 'member']);
 Route::get('/event', [organAdminController::class, 'event']);
 Route::get('/blog', [organAdminController::class, 'blog']);
-Route::get('/payment', [organAdminController::class, 'payment']);
+Route::get('/payment/{plan_id}', [organAdminController::class, 'payment']);
  Route::get('/upgrade', [PlanController::class, 'ShowUpgradePlan'])->name('organAdmin.plans.upgrade');
- Route::post('/upgrade', [PlanController::class, 'UpgradePlan']) ;
+  Route::post('/upgrade', [PlanController::class, 'UpgradePlan']);
 
 Route::get('/sidebar nav', [organAdminController::class, 'sidebar']);
 Route::get('/edit_profile/{id}', [organAdminController::class, 'editprofile']);

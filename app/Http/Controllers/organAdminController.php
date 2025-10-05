@@ -419,10 +419,10 @@ return redirect()->back()->with('message', 'Member added successfully!'
 
     }
 
-    public function payment()
+    public function payment($plan_id)
     {
         if(Auth::id()){
-          //  $plan = Plan::findOrFail($plan_id);
+            $plan = Plan::findOrFail($plan_id);
             $userID = Auth::user()->organization_name;
             $payments = payment::where('organ_name', $userID)->get();
             $useriD = Auth::user()->id;
@@ -437,39 +437,55 @@ return redirect()->back()->with('message', 'Member added successfully!'
 
 
     public function uploadpayment(Request $request)
-    {
-        $user = Auth::user();
-        $plan = Plan::findOrFail($request->plan_id);
+{
+    $user = Auth::user();
+    $plan = Plan::findOrFail($request->plan_id);
 
-       $payment = new payment;
-        $payment->name=$request->name;
-        $payment->organ_name=$request->organ_name;
-      $payment->plan=$request->plan;
-      $payment->amount=$request->amount;
-      $payment->billing=$request->billing;
-      $payment->payment_method=$request->payment_method;
+    // Create new payment record
+    $payment = new Payment();
+    $payment->user_id = $user->id;
+    $payment->name = $request->name;
+    $payment->organ_name = $request->organ_name;
+    $payment->plan_id = $plan->id;
+    $payment->amount = $plan->price; // 💰 get amount directly from Plan
+    $payment->billing = $plan->billing_cycle; // ⏱️ get billing cycle from Plan
+    $payment->payment_method = $request->payment_method;
 
-      $paymentSuccess = true;
+    // Simulate successful payment (replace with real gateway logic)
+    $paymentSuccess = true;
 
-      if ($paymentSuccess) {
-         // Calculate expiry based on billing cycle
-         if ($plan->billing_cycle === 'monthly') {
-            $expiry = now()->addMonth(); }
-             elseif ($plan->billing_cycle === 'yearly') {
-                $expiry = now()->addYear(); }
-                else { $expiry = null;
-                     // lifetime
-                      }
-                      $user->update([ 'plan_id' => $plan->id, 'plan_expiry' => $expiry, ]);
-
-   $payment->save();
-  return redirect()->url('plans.upgrade')->with('message', 'Plan upgraded successfully!');
-  // return redirect()->back()->with('message', 'Payment completed successfully!');
-
-
+    if ($paymentSuccess) {
+        // Calculate expiry date
+        if ($plan->billing_cycle === 'monthly') {
+            $expiry = now()->addMonth();
+        } elseif ($plan->billing_cycle === 'yearly') {
+            $expiry = now()->addYear();
         } else {
-            return redirect()->back()->with('error', 'Payment failed. Please try again.');
+            $expiry = null; // Lifetime plan
         }
+
+        // Update user plan and expiry
+        $user->update([
+            'plan_id' => $plan->id,
+            'plan_expiry' => $expiry,
+        ]);
+
+        // Save payment
+        $payment->status = 'success';
+        $payment->save();
+
+        return redirect()
+            ->route('organAdmin.plans.upgrade')
+            ->with('message', 'Plan upgraded successfully!');
+    } else {
+        $payment->status = 'failed';
+        $payment->save();
+
+        return redirect()
+            ->back()
+            ->with('error', 'Payment failed. Please try again.');
+    }
+
     }
 
 
