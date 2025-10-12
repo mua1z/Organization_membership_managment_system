@@ -88,7 +88,7 @@
                 <a href="#" class="btn btn-outline">Load More Articles</a>
             </div>
         </div>
-    </section>gg
+    </section>
 
     <section class="newsletter">
         <div class="container">
