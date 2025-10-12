@@ -20,7 +20,7 @@
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </div>s
             <ul class="nav-list">
                 <li><a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{url('/')}}">Home</a></li>
                 <li><a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{url('/about')}}">About</a></li>
