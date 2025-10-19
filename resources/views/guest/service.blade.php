@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/css/service.css">
     <link rel="stylesheet" href="/css/footer.css">
 
-</head>
+</head>d
 <body>
     <header>
     <!-- Navigation -->
