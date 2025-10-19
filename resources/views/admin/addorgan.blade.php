@@ -47,7 +47,7 @@
   <input type="file" id="file" name="file" placeholder="Enter your photo"  >
 
 
-sara Ab
+sara A
                     
 
             <div class="modal-footer">
