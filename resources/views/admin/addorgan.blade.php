@@ -47,7 +47,8 @@
   <input type="file" id="file" name="file" placeholder="Enter your photo"  >
 
 
-sara Ab
+sara Aba
+                    
 
             <div class="modal-footer">
                 <button class="btn btn-secondary modal-cancel">Cancel</button>
