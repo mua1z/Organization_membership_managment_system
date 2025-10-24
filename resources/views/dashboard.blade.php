@@ -1,3 +1,3 @@
-<x-app-layout>ghfj
+<x-app-layout>ghf
 
 </x-app-layout>
