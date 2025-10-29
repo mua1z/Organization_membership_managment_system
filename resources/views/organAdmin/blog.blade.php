@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/orgAdmin/js/styles.css">
     <link rel="stylesheet" href="/orgAdmin/css/event.css">
 
-</head>ghk
+</head>ghkl
 <body>
     <div class="dashboard-container">
         <!-- Sidebar Navigation -->
